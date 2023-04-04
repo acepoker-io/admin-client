@@ -1,0 +1,1032 @@
+.comingSoon-Text {
+  height: 50vh;
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.comingSoon-Text h1 {
+  color: #9d9d9d;
+  font-size: 40px;
+}
+
+
+button:hover {
+  box-shadow: 0 0 50px 0 hsl(0deg 0% 100% / 30%);
+}
+
+.yellowBtn,
+.yellowBtn:hover,
+.yellowBtn:active,
+.yellowBtn:focus {
+  padding: 6px 18px !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  line-height: 20px !important;
+  text-align: center !important;
+  background: var(--primary-color) !important;
+  border: 0px solid var(--primary-color) !important;
+  border-radius: 30px !important;
+  color: var(--main-bg) !important;
+  min-width: 120px !important;
+  width: fit-content !important;
+  height: 38px !important;
+  display: grid;
+  place-content: center;
+}
+
+.darkBtn,
+.darkBtn:hover,
+.darkBtn:active,
+.darkBtn:focus {
+  padding: 6px 18px !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  text-align: center;
+  color: var(--text-white) !important;
+  background-color: #343a40 !important;
+  border-color: transparent !important;
+  min-width: 120px;
+  width: fit-content;
+  border-radius: 30px !important;
+  height: 38px !important;
+  display: grid;
+  place-content: center;
+}
+
+input,
+input:focus,
+input:hover {
+  color: white;
+}
+
+.OpenTable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.openTable-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.openTable-header h4 {
+  margin-bottom: 0px;
+}
+
+.openTable-header .searchFromgroup {
+  max-width: 350px;
+  width: 100%;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #141414;
+  background-clip: padding-box;
+  border: 1px solid #141414;
+  border-radius: 0.3rem;
+  outline: 0;
+}
+
+.close {
+  float: right;
+  font-size: 2rem;
+  font-weight: 200;
+  line-height: 1;
+  color: #fff;
+  text-shadow: none !important;
+  opacity: 0.5;
+}
+
+.close:not(:disabled):not(.disabled):hover,
+.close:not(:disabled):not(.disabled):focus {
+  opacity: 1;
+}
+
+.close:hover {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.modal.show .modal-dialog button:hover,
+.modal.show .modal-dialog button:active,
+.modal.show .modal-dialog button:focus {
+  box-shadow: none !important;
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-bottom: none !important;
+  border-top-left-radius: calc(0.3rem - 1px);
+  border-top-right-radius: calc(0.3rem - 1px);
+}
+
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1rem 1.5rem 0rem 1.5rem;
+  color: rgb(214, 214, 214);
+}
+
+.modal-title h4 {
+  padding: 2rem;
+}
+
+.modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 0.75rem 2rem 0.75rem;
+  border-top: none !important;
+  border-bottom-right-radius: calc(0.3rem - 1px);
+  border-bottom-left-radius: calc(0.3rem - 1px);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #f9ff00 !important;
+  border-color: #f9ff00 !important;
+  color: black !important;
+}
+
+a.btn.btn-primary:focus-visible {
+  outline: none !important;
+}
+
+.OpenTable .tableCards {
+  width: 100%;
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 100%));
+  column-gap: 20px;
+  row-gap: 35px;
+}
+
+.OpenTable .tableCards .tablecard {
+  min-width: 130px;
+  width: 100%;
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  border: 1px solid #2e2e2e;
+}
+
+.tablecard .cardImgContainer {
+  position: relative;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background-color: #0e0d0d;
+}
+
+.tablecard .cardImgContainer img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  opacity: 0.7;
+}
+
+.tablecard .cardDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+}
+
+.tablecard .cardDetail .allUsersImg {
+  width: 80px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.tablecard .cardDetail h5 {
+  margin-bottom: 0px !important;
+}
+
+.tablecard .cardDetail button {
+  margin-top: 5px;
+  width: 100% !important;
+}
+
+.tablecard .cardTableUsers {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.tablecard .allUsersImg img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #363636;
+}
+
+.opentable-body .noCardtable {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 250px;
+  background-color: #202020;
+  border-radius: 6px;
+}
+
+.transactionSelect .selectContainer {
+  background-color: #202020;
+  width: 180px;
+  padding: 0px 10px;
+  border-radius: 6px;
+}
+
+.transactionSelect .selectContainer .form-control {
+  border: none !important;
+  cursor: pointer;
+  padding: 0px !important;
+  background-color: #202020 !important;
+}
+
+.searchFromInput,
+.searchFromInput:active,
+.searchFromInput:focus,
+.searchFromInput:hover {
+  height: 35px;
+  font-size: 14px;
+}
+
+svg.searchlens {
+  position: absolute;
+  top: 9px;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+  fill: #9f9f9f;
+  cursor: pointer;
+}
+
+svg.searchlens:hover {
+  fill: #f9ff00;
+}
+
+.css-13cymwt-control,
+.css-13cymwt-control:focus,
+.css-13cymwt-control:active {
+  width: 100%;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 0.375rem 0.75rem !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: var(--text-white) !important;
+  background-color: var(--primary-bg) !important;
+  background-clip: padding-box;
+  border: 1px solid #4e4e4e !important;
+  border-radius: 30px !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+
+.css-1fdsijx-ValueContainer,
+.css-1fdsijx-ValueContainer:focus-visible,
+.css-1fdsijx-ValueContainer :focus {
+  padding: 0px !important;
+  outline: none !important;
+}
+
+.css-qbdosj-Input {
+  visibility: visible;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  display: inline-grid;
+  grid-area: 1/1/2/3;
+  grid-template-columns: 0 min-content;
+  margin: 2px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  color: hsl(0deg 0% 100%);
+  box-sizing: border-box;
+}
+
+.css-16e5lz6-Input {
+  visibility: visible;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  display: inline-grid;
+  grid-area: 1/1/2/3;
+  grid-template-columns: 0 min-content;
+  margin: 0px !important;
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+  color: hsl(0, 0%, 20%);
+  box-sizing: border-box;
+  height: none !important;
+}
+
+.opentableModal {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-footer button,
+.modal-footer button:focus,
+.modal-footer button:active,
+.modal-footer button:hover {
+  margin-top: 30px;
+  width: 300px !important;
+  height: 44px;
+}
+
+.opentable-userByinput {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.actionDropdown {
+  text-align: center;
+}
+
+.threedotDiv {
+  position: relative;
+}
+
+.threedotDiv .userdropdownAction.dropdown-menu.show {
+  position: absolute;
+  top: -400% !important;
+  left: -250% !important;
+  margin: 0px;
+  transform: translate(-25px, 40px) !important;
+  background-color: #2b2d2e !important;
+  color: #fff !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  min-width: 14rem;
+}
+
+.threedotDiv .dropdown-item:hover,
+.dropdown-item:focus {
+  color: #ffffff !important;
+  text-decoration: none;
+  background-color: #202122 !important;
+}
+
+.threedotDiv .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #ffffff !important;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  font-size: 15px;
+}
+
+.threedotDiv .dropdown-toggle::after {
+  display: none;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+}
+
+.threedotDiv .btn-primary,
+.threedotDiv .btn-primary:focus,
+.threedotDiv .btn-primary:active,
+.threedotDiv .btn-primary:hover {
+  color: rgb(255, 255, 255) !important;
+}
+
+.threedotDiv .btn-primary {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.threedotDiv .btn {
+  font-size: 22px;
+  padding: none !important;
+  border-radius: none !important;
+  letter-spacing: none !important;
+  line-height: none !important;
+  text-transform: none !important;
+  font-weight: 700;
+  border-radius: none !important;
+}
+
+.threedotDiv .btn {
+  padding: 0rem 0rem !important;
+}
+
+.threedotDiv button:hover {
+  box-shadow: none !important;
+}
+
+.threedotDiv .show>.btn-primary.dropdown-toggle {
+  color: #fff !important;
+}
+
+.userInfoModal p,
+.userBlockModal p,
+.userWalletModal p {
+  font-size: 16px !important;
+  margin-bottom: 0px !important;
+  color: #f9ff00;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.7px;
+}
+
+.userInfoModal .modal-title.h4,
+.userBlockModal .modal-title.h4,
+.userWalletModal .modal-title.h4 {
+  text-align: center;
+  width: 100%;
+}
+
+.userBlockModal .opentableModal h4 {
+  text-align: center;
+  width: 100%;
+}
+
+.userWalletModal .opentableModal {
+  gap: 0px !important;
+}
+
+.userInfoModal h4,
+.userBlockModal h4,
+.userWalletModal h4 {
+  margin-bottom: 0px !important;
+  line-height: 28px !important;
+  text-transform: none !important;
+}
+
+.userInfoModal .modal-title.h4 {
+  width: 100%;
+  text-align: center;
+}
+
+.userWalletModal .form-control,
+.userWalletModal .form-control:active,
+.userWalletModal .form-control:focus {
+  color: #f9ff00 !important;
+}
+
+.userInfoModal label.form-label {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.userInfoModal svg {
+  width: 16px !important;
+  position: absolute;
+  right: 10px;
+  color: #f9ff00;
+}
+
+table::-webkit-scrollbar-track {
+  width: 6px;
+}
+
+.userInfoModal .form-group {
+  position: relative;
+}
+
+.userInfoModal .form-group input.form-control {
+  width: 100% !important;
+  border-radius: 30px !important;
+  height: 44px !important;
+}
+
+.userInfoModal .react-tel-input .flag-dropdown {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border: 1px solid #4e4e4e;
+  padding: 0;
+  background-color: #151515;
+  border-radius: 30px 0 0 30px;
+  border-right: 0px;
+}
+
+.opentableModal span {
+  color: var(--primary-color);
+}
+
+.userBlockModal .modal-footer,
+.userWalletModal .modal-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4px;
+}
+
+.userBlockModal .modal-footer button,
+.userBlockModal .modal-footer button:focus,
+.userBlockModal .modal-footer button:active,
+.userBlockModal .modal-footer button:hover,
+.userWalletModal .modal-footer button,
+.userWalletModal .modal-footer button:focus,
+.userWalletModal .modal-footer button:active,
+.userWalletModal .modal-footer button:hover {
+  width: 180px !important;
+}
+
+.userWalletModal label.form-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-datatable .datatableheading {
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.user-datatableLine {
+  width: 100px;
+  height: 2px;
+  background-color: rgb(77, 77, 77);
+}
+
+.userInfoModal .modal-header .modal-title.h4 {
+  width: 100%;
+  text-align: center;
+  margin-left: 36px;
+}
+
+.userInfoProfile {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.userInfoProfile .userprofileImgContainer {
+  position: relative;
+  width: 150px;
+}
+
+.userInfoProfile .userInfoProfilImg {
+  border-radius: 50%;
+  height: 150px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.userprofileImgContainer svg {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  width: 25px !important;
+  height: 25px;
+  cursor: pointer;
+}
+
+.forgotpasswdh {
+  text-align: center;
+}
+
+.resetPasswordLink {
+  width: 100%;
+}
+
+.inputPasswordBox {
+  position: relative;
+}
+
+#togglePassword {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+}
+
+#togglePassword svg {
+  color: #a3a3a3;
+  width: 16px;
+}
+
+.passwdUpdate form {
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.passwdUpdate .form-group {
+  width: 48%;
+}
+
+.passwdUpdate .form-group:last-child {
+  width: 100%;
+}
+
+.passwdUpdate #togglePassword {
+  top: 42px;
+}
+
+.passwdUpdate .form-group label {
+  color: #ddd;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.passwdUpdate .form-button {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.passwdUpdate .loginPageBtn {
+  margin-top: 0px !important;
+  max-width: 200px;
+  width: 100%;
+  height: 44px;
+  text-transform: unset;
+}
+
+.blockActive {
+  color: red;
+}
+
+p.error-msg {
+  position: absolute;
+  bottom: -20px;
+  color: red !important;
+  text-align: left !important;
+  font-size: 12px !important;
+  margin-bottom: 0px;
+}
+
+.userStatusActive {
+  color: green;
+}
+
+.tournament-finish {
+  color: #ff214e;
+}
+
+.tournament-running {
+  color: #40ff40;
+}
+
+.tournament-not-start {
+  color: #ffa500;
+}
+
+.trashTable {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+}
+.trashTable svg {
+  width: 16px;
+  display: flex;
+  color: #f9ff00;
+  cursor: pointer;
+}
+@media screen and (max-width: 1400px) {
+  .OpenTable .tableCards {
+    grid-template-columns: repeat(6, minmax(0, 100%));
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .OpenTable .tableCards {
+    grid-template-columns: repeat(5, minmax(0, 100%));
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .user-datatable ul {
+    padding: 0 0rem;
+  }
+
+  .OpenTable .tableCards {
+    grid-template-columns: repeat(4, minmax(0, 100%));
+  }
+
+  .openTable-header {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .userlist-page .card-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .OpenTable .tableCards {
+    grid-template-columns: repeat(2, minmax(0, 100%));
+  }
+
+  .transactionSelect .selectContainer .form-control {
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .user-datatable ul li {
+    height: 25px;
+    background-color: transparent;
+    border: 1px solid #1e1e1e;
+    line-height: 25px;
+    margin: 0px 5px;
+    border-radius: 5px;
+  }
+
+  .user-datatable ul li a {
+    border-radius: 7px;
+    padding: 2px 6px;
+    /* border: gray 1px solid; */
+    cursor: pointer;
+    font-size: 11px;
+  }
+}
+
+/* .marketValueCard{
+  height: 500px;
+} */
+
+.adminPagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 6px 0px;
+}
+
+.react-tel-input .flag-dropdown.open .selected-flag {
+  background-color: transparent !important;
+  border-radius: 3px 0 0 0;
+}
+
+.react-tel-input .country-list {
+  outline: none;
+  z-index: 1;
+  list-style: none;
+  position: absolute;
+  padding: 0;
+  margin: 10px 0 10px -1px;
+  box-shadow: 1px 2px 10px rgb(0 0 0 / 35%);
+  background-color: #232323 !important;
+  width: 300px;
+  max-height: 200px;
+  overflow-y: scroll;
+  border-radius: 0 0 3px 3px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.react-tel-input .country-list .country:hover {
+  background-color: #171717 !important;
+}
+
+.react-tel-input .country-list .country.highlight {
+  background-color: #000000 !important;
+}
+
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus {
+  background-color: rgba(39, 39, 39, 0);
+}
+
+.dashboardViewAll {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboardViewAll .btn {
+  font-size: 10px;
+  padding: 2px 15px;
+  text-transform: capitalize;
+}
+
+.dashboardViewAllCard th {
+  font-size: 14px !important;
+}
+
+.dashboardViewAllCard .table td {
+  padding: 8px 0.75rem;
+  vertical-align: top;
+  font-size: 12px !important;
+  border-top: none !important;
+}
+
+.dashboardViewAllCard .latest-user-image img {
+  max-width: 35px;
+  width: 100%;
+  height: 35px;
+  border-radius: 100%;
+}
+
+.react-datepicker-wrapper {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  width: 100%;
+}
+
+.jvEING {
+  color: rgb(255 255 255 / 87%) !important;
+  background-color: #202020 !important;
+}
+
+.ddrTJQ {
+  color: rgb(255 255 255 / 87%) !important;
+  background-color: #202020 !important;
+}
+
+.profile-details img {
+  margin-bottom: 0px;
+}
+
+.settingUserImg {
+  /* height: 150px; */
+  margin: 0 auto 25px;
+  position: relative;
+  width: 150px;
+}
+
+.settingUserImg .editImg {
+  bottom: -8px;
+  position: absolute;
+  right: 25px;
+  height: 20px;
+  width: 20px;
+  background: #45454500;
+}
+
+.settingUserImg .form-label {
+  margin-bottom: 0 !important;
+}
+
+.settingUserImg .editImg svg {
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  fill: #f9ff00;
+}
+
+.settingUserImg .form-control-file {
+  display: none !important;
+  overflow: hidden;
+}
+
+.media.align-items-center {
+  justify-content: flex-end !important;
+}
+
+.CAmot {
+  color: rgba(255, 255, 255, 0.87) !important;
+  background-color: rgb(32 32 32) !important;
+}
+
+.boyBjT {
+  color: rgba(255, 255, 255, 0.87) !important;
+  background-color: rgb(32 32 32) !important;
+}
+
+.create-tournament-popup .modal-content {
+  border: 1px solid #242323;
+}
+
+.create-tournament-popup .modal-body {
+  padding: 20px 16px;
+  padding-bottom: 0;
+  padding-top: 0;
+  height: 56vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.create-tournament-popup.createOpenTable .modal-body {
+  padding: 20px 16px;
+  padding-bottom: 0;
+  padding-top: 0;
+  height: 100% !important;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+
+.create-tournament-popup .modal-footer button {
+  margin-top: 20px;
+  max-width: 180px;
+  width: 100% !important;
+}
+
+.opentable-userByinput.winner-row {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.winner-row .userBuy.form-group {
+  width: 48%;
+}
+
+.tab-pane.active.show .admin-table {
+  background-color: #202020;
+  border: 1px solid #353535;
+  border-radius: 4px;
+}
+
+.tab-pane.active.show .admin-table .table-hover tbody tr:hover {
+  color: #ddd;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.tab-pane.active.show .admin-table .table tr:nth-of-type(even)>* {
+  background: #141414cc;
+}
+
+.createGameCheckHand {
+  margin-top: 10px !important;
+}
+
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus {
+  background-color: #495057 !important;
+  border-color: #495057 !important;
+}
+
+.page-main-header .main-header-right .nav-right>ul>li:first-child {
+  border-left: none;
+  width: 100% !important;
+}
+
+@media screen and (max-width: 991px) {
+  .adminPagination {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .user-datatable ul {
+    padding: 0 0rem;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .modal-footer {
+    padding-bottom: 20px;
+    flex-flow: row;
+  }
+
+  .passwdUpdate .form-group {
+    width: 100%;
+  }
+
+  .create-tournament-popup .modal-title {
+    font-size: 20px;
+  }
+}

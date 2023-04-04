@@ -1,0 +1,487 @@
+.admin-table .table-responsive {
+  padding: 1px;
+  background: rgb(255 255 255 / 10%);
+  border-radius: 10px;
+  margin: 0;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-table .table {
+  margin: 0;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-table .table>thead {
+  background: #202020;
+  border-radius: 9px 9px 0px 0px;
+}
+
+.admin-kyc-wrapper {
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.admin-table .table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table .search-wrapper {
+  padding: 20px 20px 0px;
+}
+
+.draft-balance {
+  display: flex;
+  align-items: center;
+}
+
+.draft-balance img {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+
+/* css code for popup form KYC  */
+
+.transaction-heading h6 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.transaction-heading h3 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  color: #222;
+}
+
+.cashtag-kyc-grid {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.cashtag-kyc .cashtag-link {
+  text-align: start !important;
+  max-width: 35%;
+  width: 100%;
+  margin: 0 auto !important;
+}
+
+.transaction-heading span {
+  font-size: 15px;
+  text-align: center;
+}
+
+.cashtag-link {
+  text-align: center;
+  padding: 1px;
+  background: rgb(255 255 255 / 10%);
+  border-radius: 10px;
+  margin: 0;
+}
+
+.cashtag-kyc-id {
+  min-width: 100%;
+  height: auto;
+}
+
+.cashtag-kyc-id .qr-wrapper {
+  width: 100%;
+}
+
+.qr-wrapper-id {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.corner-bottom-button img {
+  width: 230px;
+  height: 200px;
+  object-fit: contain;
+  margin: 0;
+}
+
+.qr-wrapper p {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.cashtag-kyc-id {
+  width: 100%;
+  display: flex;
+  height: auto;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+button.popup-confirm-btn.btn.btn-primary {
+  margin-left: 15px;
+}
+
+.desktop-btn-view .popup-confirm-btn {
+  min-width: 160px;
+  height: 40px;
+}
+
+.desktop-btn-view .popup-cancel-btn {
+  min-width: 160px;
+  height: 40px;
+}
+
+.kyc-btn-grid .popup-btn-grid {
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.corner-button {
+  display: inline-block;
+  position: relative;
+  background: none;
+  color: #000;
+  box-sizing: content-box;
+  border: 2px solid transparent;
+  text-align: center;
+  transition: 0.5s color;
+}
+
+.corner-button:before {
+  top: -2px;
+  left: -2px;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  transition: 0.5s all;
+}
+
+.corner-button:after {
+  top: -2px;
+  right: -2px;
+  border-top: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  transition: 0.5s all;
+}
+
+.corner-button:before,
+.corner-button:after,
+.corner-button .corner-bottom-button:before,
+.corner-button .corner-bottom-button:after {
+  display: block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  position: absolute;
+}
+
+.corner-button .corner-bottom-button {
+  display: block;
+}
+
+.corner-button .corner-bottom-button:before {
+  bottom: -2px;
+  left: -2px;
+  border-bottom: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  transition: 0.5s all;
+}
+
+.corner-button .corner-bottom-button:after {
+  bottom: -2px;
+  right: -2px;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  transition: 0.5s all;
+}
+
+.kyc-tabs-show {
+  min-width: 400px;
+  height: auto;
+  gap: 20px;
+  display: flex;
+}
+
+.kyc-tabs-show button#justify-tab-example-tab-accepted {
+  background: green;
+  color: #ffff;
+  font-size: 15px;
+  min-width: 140px;
+  min-height: 60px;
+}
+
+.kyc-tabs-show button#justify-tab-example-tab-rejected {
+  background: red;
+  color: #ffff;
+  font-size: 15px;
+  min-width: 140px;
+  min-height: 60px;
+}
+
+.kyc-tabs-show button#justify-tab-example-tab-pending {
+  background: orange;
+  color: #ffff;
+  min-width: 140px;
+  font-size: 15px;
+  min-height: 60px;
+}
+
+.kyc-tabs-show ul.mb-3.nav.nav-tabs.nav-justified {
+  gap: 20px;
+}
+
+/* button.popup-confirm-btn .btn.btn-primary {
+    min-width: 160px !important;
+    height: 40px;
+  }
+  
+  button.popup-cancel-btn .btn.btn-primary {
+    min-width: 160px !important;
+    height: 40px;
+  } */
+
+/* KYC Request Popup */
+.kyc-request-popup .cashtag-kyc-grid {
+  padding: 10px 40px;
+}
+
+.kyc-request-popup .cashtag-kyc-grid .cashtag-link {
+  max-width: calc(50% - 10px) !important;
+  padding: 10px 26px;
+  background-color: #343a40;
+}
+
+.kyc-request-popup h6 {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.kyc-request-popup .kyc-btn-grid .popup-btn-grid {
+  margin: 0;
+}
+
+.kyc-request-popup .desktop-btn-view .btn-primary {
+  height: 44px;
+  padding: 10px 25px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 190px;
+    width: 100%;
+}
+
+.kyc-request-popup .popup-btn-grid.desktop-btn-view {
+  display: flex;
+  justify-content: center;
+  padding: 20px 30px 50px;
+}
+
+.kycContainer-card .admin-table .viewkycdetails.eye {
+  filter: invert(1);
+}
+
+.kycContainer-card .user-datatable ul {
+  margin-top: 30px;
+}
+
+.kycContainer-card .page-item.active .page-link {
+  z-index: 3;
+  color: black;
+  background-color: #f9ff00;
+  border-color: #f9ff00;
+  font-weight: 600;
+}
+
+.kycContainer-card .table-loader .spinner-border {
+  color: #f9ff00 !important;
+  border-width: 3px;
+}
+
+.kycContainer-card .modal-header h3 {
+  text-align: center;
+  font-weight: 800;
+  width: 100%;
+}
+
+.kycContainer-card .page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #000000;
+  background-color: #f9ff00;
+  border: 1px solid #f9ff00;
+}
+
+.kycContainer-card .page-item.disabled .page-link {
+  color: #000;
+  pointer-events: none;
+  cursor: auto;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
+
+.kycContainer-card table.table {
+  position: relative;
+  min-height: 144px;
+}
+
+.kycContainer-card tbody .no-data {
+  position: absolute;
+  width: 100%;
+  top: 57px;
+  left: 0;
+  right: 0;
+  min-height: 87px;
+}
+.la, .las {
+  font-family: 'Line Awesome Free' !important;
+  font-weight: 900 !important;
+}
+.kyc-request-popup button.close {
+  color: #fff !important;
+}
+
+.kyc-request-popup button.close span {
+  color: #fff !important;
+  font-size: 40px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+}
+
+.kycContainer-card .table-loader {
+  position: absolute;
+  top: 57px;
+  left: 0;
+  right: 0;
+  min-height: 87px;
+  text-align: center;
+  padding: 25px 0px;
+  width: 1;
+}
+
+@media only screen and (max-width: 991px) {
+  .kyc-request-popup .cashtag-kyc-grid {
+    padding: 10px 0px;
+  }
+
+  .kyc-request-popup .cashtag-kyc-grid .cashtag-link {
+    max-width: calc(50% - 10px) !important;
+    padding: 10px 14px;
+    background-color: #343a40;
+  }
+
+  .kyc-request-popup h6 {
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .corner-bottom-button img {
+    width: 170px;
+    height: 150px;
+    object-fit: contain;
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .kyc-request-popup .cashtag-kyc-grid {
+    padding: 5px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .kyc-request-popup .cashtag-kyc-grid .cashtag-link {
+    max-width: 100% !important;
+    padding: 10px 14px;
+    background-color: #343a40;
+  }
+
+  .kyc-request-popup .popup-btn-grid.desktop-btn-view {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .kyc-request-popup button {
+    height: 44px;
+    margin: 0px;
+    padding: 10px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black !important;
+    font-size: 13px !important;
+  }
+
+  .kyc-request-popup .desktop-btn-view .btn-primary {
+    margin: 0px;
+    height: 44px !important;
+    padding: 10px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  button.popup-confirm-btn.btn.btn-primary {
+    margin-left: 30px;
+    color: #fff;
+    font-size: 10px;
+    height: 40px;
+    padding: 5px;
+  }
+
+  .desktop-btn-view .popup-confirm-btn {
+    min-width: 160px;
+    margin-top: 10px;
+    margin-left: 0px !important;
+    height: 40px;
+  }
+
+  .desktop-btn-view .popup-cancel-btn {
+    min-width: 160px;
+    height: 40px;
+  }
+
+  .popup-btn-grid .popup-cancel-btn {
+    background: red;
+    color: #fff;
+    font-size: 10px;
+    height: 40px;
+    padding: 5px;
+    width: 122px;
+  }
+
+  .cashtag-kyc-grid {
+    flex-wrap: wrap;
+  }
+
+  .cashtag-kyc .cashtag-link {
+    max-width: 100%;
+  }
+
+  .cashtag-kyc-id {
+    flex-wrap: wrap;
+  }
+
+  .cashtag-kyc-id .qr-wrapper {
+    width: 100%;
+  }
+}

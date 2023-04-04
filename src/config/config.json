@@ -1,0 +1,21 @@
+{
+  "local": {
+    "server": "http://localhost:3004",
+    "admin": "http://localhost:3000"
+  },
+  "development": {
+    "server": "https://dev-api.scrooge.casino",
+    "admin": "https://devadmin.scrooge.casino",
+    "client": "https://dev.scrooge.casino"
+  },
+  "production": {
+    "server": "https://api.scrooge.casino",
+    "admin": "https://admin.scrooge.casino",
+    "client": "https://scrooge.casino"
+  },
+  "staging": {
+    "server": "https://beta-api.scrooge.casino",
+    "admin": "https://betaadmin.scrooge.casino",
+    "client": "https://beta.scrooge.casino"
+  }
+}

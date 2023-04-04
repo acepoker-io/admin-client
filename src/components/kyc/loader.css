@@ -1,0 +1,8 @@
+.table-loader {
+  text-align: center;
+  padding: 25px 0px;
+}
+
+.table-loader .spinner-border {
+  color: #003cff !important;
+}
