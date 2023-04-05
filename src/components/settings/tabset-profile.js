@@ -100,43 +100,43 @@ const TabsetProfile = () => {
   return (
     <div>
       <Tabs>
-        <TabList className="nav nav-tabs tab-coupon">
-          <Tab className="nav-link">
-            <User className="mr-2" />
+        <TabList className='nav nav-tabs tab-coupon'>
+          <Tab className='nav-link'>
+            <User className='mr-2' />
             Profile
           </Tab>
-          <Tab className="nav-link">
-            <Key className="mr-2" />
+          <Tab className='nav-link'>
+            <Key className='mr-2' />
             Update Password
           </Tab>
         </TabList>
 
         <TabPanel>
-          <div className="tab-pane fade show active">
-            <h5 className="f-w-600 f-16">Profile</h5>
-            <div className="table-responsive profile-table">
-              <Table className="table-responsive">
+          <div className='tab-pane fade show active'>
+            <h5 className='f-w-600 f-16'>Profile</h5>
+            <div className='table-responsive profile-table'>
+              <Table className='table-responsive'>
                 <tbody>
                   <tr>
                     <td>First Name:</td>
-                    <td className="user-info-td">{admin.firstName}</td>
+                    <td className='user-info-td'>{admin.firstName}</td>
                   </tr>
                   <tr>
                     <td>Last Name:</td>
-                    <td className="user-info-td">{admin.lastName}</td>
+                    <td className='user-info-td'>{admin.lastName}</td>
                   </tr>
                   <tr>
                     <td>Username:</td>
-                    <td className="user-info-td">{admin.username}</td>
+                    <td className='user-info-td'>{admin.username}</td>
                   </tr>
                   <tr>
                     <td>Email:</td>
-                    <td className="user-info-td">{admin.email}</td>
+                    <td className='user-info-td'>{admin.email}</td>
                   </tr>
 
                   <tr>
                     <td>Mobile Number:</td>
-                    <td className="user-info-td">{admin.phone}</td>
+                    <td className='user-info-td'>{admin.phone}</td>
                   </tr>
                 </tbody>
               </Table>
@@ -145,16 +145,16 @@ const TabsetProfile = () => {
         </TabPanel>
 
         <TabPanel>
-          <div className="tab-pane fade show active">
-            <h5 className="f-w-600 f-16">Update Password</h5>
-            <div className="passwdUpdate">
-              <Form className="form-horizontal auth-form">
-                <FormGroup className="inputPasswordBox">
+          <div className='tab-pane fade show active'>
+            <h5 className='f-w-600 f-16'>Update Password</h5>
+            <div className='passwdUpdate'>
+              <Form className='form-horizontal auth-form'>
+                <FormGroup className='inputPasswordBox'>
                   <Label>Current Password</Label>
                   <Input
-                    required=""
-                    className="form-control"
-                    placeholder="Enter Current Password"
+                    required=''
+                    className='form-control'
+                    placeholder='Enter Current Password'
                     type={showCurrentPassword ? "text" : "password"}
                     value={currentPassword}
                     onChange={(e) => {
@@ -162,19 +162,18 @@ const TabsetProfile = () => {
                     }}
                   />
                   <span
-                    id="togglePassword"
+                    id='togglePassword'
                     onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                    role="presentation"
-                  >
+                    role='presentation'>
                     {showCurrentPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                 </FormGroup>
-                <FormGroup className="inputPasswordBox">
+                <FormGroup className='inputPasswordBox'>
                   <Label>New Password</Label>
                   <Input
-                    required=""
-                    className="form-control"
-                    placeholder="Enter New Password"
+                    required=''
+                    className='form-control'
+                    placeholder='Enter New Password'
                     type={shownewPassword ? "text" : "password"}
                     value={newPassword}
                     onChange={(e) => {
@@ -182,45 +181,42 @@ const TabsetProfile = () => {
                     }}
                   />
                   <span
-                    id="togglePassword"
+                    id='togglePassword'
                     onClick={() => setShownewPassword(!shownewPassword)}
-                    role="presentation"
-                  >
+                    role='presentation'>
                     {shownewPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                 </FormGroup>
-                <FormGroup className="inputPasswordBox">
+                <FormGroup className='inputPasswordBox'>
                   <Label>Confirm Password</Label>
                   <Input
-                    required=""
+                    required=''
                     type={showconfirmPassword ? "text" : "password"}
-                    className="form-control"
-                    placeholder="Confirm Password"
+                    className='form-control'
+                    placeholder='Confirm Password'
                     value={confirmPassword}
                     onChange={(e) => {
                       setConfirmPassword(e.target.value);
                     }}
                   />
                   <span
-                    id="togglePassword"
+                    id='togglePassword'
                     onClick={() => setShowconfirmPassword(!showconfirmPassword)}
-                    role="presentation"
-                  >
+                    role='presentation'>
                     {showconfirmPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                 </FormGroup>
               </Form>
-              <div className="form-button">
+              <div className='form-button'>
                 <Button
-                  className="loginPageBtn"
-                  color="primary"
-                  type="button"
-                  onClick={() => resetPassword()}
-                >
+                  className='loginPageBtn'
+                  color='primary'
+                  type='button'
+                  onClick={() => resetPassword()}>
                   {!spinLoader ? (
                     "Update Password"
                   ) : (
-                    <Spinner animation="border" />
+                    <Spinner animation='border' />
                   )}
                 </Button>
               </div>
