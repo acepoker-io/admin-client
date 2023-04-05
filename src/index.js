@@ -84,8 +84,7 @@ const Root = () => {
           setAdmin,
           sidebar,
           setSidebar,
-        }}
-      >
+        }}>
         <Switch>
           <Route exact path={`${process.env.PUBLIC_URL}/`} component={Login} />
           <Route
@@ -120,26 +119,26 @@ const Root = () => {
               path={`${process.env.PUBLIC_URL}/transaction`}
               component={Transaction}
             />
-             <PrivateRoute
+            {/* <PrivateRoute
               path={`${process.env.PUBLIC_URL}/kyc`}
               component={KycPage}
-            />
+            /> */}
             <PrivateRoute
               path={`${process.env.PUBLIC_URL}/games/poker`}
               component={Poker}
             />
-            <PrivateRoute
+            {/* <PrivateRoute
               path={`${process.env.PUBLIC_URL}/games/blackjack`}
               component={BlackJackGame}
-            />
-            <PrivateRoute
+            /> */}
+            {/* <PrivateRoute
               path={`${process.env.PUBLIC_URL}/games/slots`}
               component={SlotsGame}
-            />
-            <PrivateRoute
+            /> */}
+            {/* <PrivateRoute
               path={`${process.env.PUBLIC_URL}/games/roulette`}
               component={RouletteGame}
-            />
+            /> */}
             <PrivateRoute
               path={`${process.env.PUBLIC_URL}/settings/profile`}
               component={Profile}

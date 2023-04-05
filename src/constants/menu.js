@@ -1,4 +1,4 @@
-import { FaDiceD20, FaGift, FaAddressCard } from "react-icons/fa";
+import { FaDiceD20 } from "react-icons/fa";
 import {
   Home,
   Users,

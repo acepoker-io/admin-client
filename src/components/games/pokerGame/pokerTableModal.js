@@ -5,7 +5,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { pokerTableSchema } from "../../../utils/validationSchema";
 //import DatePicker from 'react-datepicker'
-import { adminAuthInstance, pokerTournamentInstance } from "../../../config/axios";
+import {
+  adminAuthInstance,
+  adminInstance,
+  pokerTournamentInstance,
+} from "../../../config/axios";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Select from "react-select";
@@ -94,71 +98,70 @@ const customStyles = {
     },
   }),
 };
-const CreatePokerTableModal = ({
-  show,
-  onHide,
-  getAllPokerTable,
-  setShow,
-}) => {
+const CreatePokerTableModal = ({ show, onHide, getAllPokerTable, setShow }) => {
   const {
     handleSubmit,
     formState: { errors },
     register,
     setValue,
-    reset
+    reset,
   } = useForm({
     mode: "onBlur",
     resolver: yupResolver(pokerTableSchema),
   });
   const [spinLoader, setSpinLoader] = useState(false);
-  const [allUsers,setAllUsers]=useState([])
-  const getAllUser=async()=>{
-
-        const res = await adminAuthInstance().get("/users-forInvite", {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
-            },
-          });
-          setAllUsers(res?.data?.allUsers);
-  }
+  const [allUsers, setAllUsers] = useState([]);
+  const getAllUser = async () => {
+    const res = await adminAuthInstance().get("/users-forInvite", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+      },
+    });
+    setAllUsers(res?.data?.allUsers);
+  };
   useEffect(() => {
-    getAllUser()
+    getAllUser();
   }, []);
   const options = useMemo(
     () =>
-    allUsers?.length>0&& allUsers.map((el) => {
+      allUsers?.length > 0 &&
+      allUsers.map((el) => {
         return { value: el.id, label: el.username };
       }),
     [allUsers]
   );
   const handleChnageInviteUsers = (selectedOptions) => {
-    setValue( 'invitedUsers', [...selectedOptions] );
+    setValue("invitedUsers", [...selectedOptions]);
   };
 
   const handleSmallBlind = (e) => {
     const { value } = e.target;
     setValue("maxchips", Number(value * 2));
   };
-  const handleChange=(e)=>{
-  setValue(`${e.target.id}`,e.target.checked)
-  }
+  const handleChange = (e) => {
+    setValue(`${e.target.id}`, e.target.checked);
+  };
   const createTable = async (values) => {
     setSpinLoader(true);
     if (spinLoader) {
       return false;
     }
     try {
-       await pokerTournamentInstance().post("/createTable", {
-        ...values,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+      const resp = await adminInstance().post(
+        "/createTable",
+        {
+          ...values,
         },
-      });
-      getAllPokerTable()
-      reset()
-      setShow(false)
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+          },
+        }
+      );
+      console.log("resp ==>", resp);
+      getAllPokerTable();
+      reset();
+      setShow(false);
       setSpinLoader(false);
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
@@ -169,110 +172,110 @@ const CreatePokerTableModal = ({
   };
   return (
     <div>
-      <Modal centered
+      <Modal
+        centered
         show={show}
         onHide={() => {
           onHide();
         }}
-        className="create-tournament-popup createOpenTable">
+        className='create-tournament-popup createOpenTable'>
         <Form onSubmit={handleSubmit(createTable)}>
-      <Modal.Header closeButton>
-        <Modal.Title>Create Table</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Form.Group className="form-group" controlId="formPlaintextPassword">
-          <Form.Label>Enter Game name</Form.Label>
-          <Form.Control
-            name="gameName"
-            type="text"
-            placeholder="Ex : John's game"
-            {...register("gameName")}
-          />
-          {!!errors?.gameName && (
-            <p className="text-danger">{errors?.gameName?.message}</p>
-          )}
-        </Form.Group>
-        <Form.Group
-          className="form-group blindpopupField"
-          controlId="formPlaintextPassword"
-        >
-          <div>
-            {" "}
-            <div className="blindFields-box">
+          <Modal.Header closeButton>
+            <Modal.Title>Create Table</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form.Group
+              className='form-group'
+              controlId='formPlaintextPassword'>
+              <Form.Label>Enter Game name</Form.Label>
+              <Form.Control
+                name='gameName'
+                type='text'
+                placeholder="Ex : John's game"
+                {...register("gameName")}
+              />
+              {!!errors?.gameName && (
+                <p className='text-danger'>{errors?.gameName?.message}</p>
+              )}
+            </Form.Group>
+            <Form.Group
+              className='form-group blindpopupField'
+              controlId='formPlaintextPassword'>
               <div>
                 {" "}
-                <Form.Label>Small Blind</Form.Label>
-                <Form.Control
-                  name="minchips"
-                  type="number"
-                  placeholder="Ex : 50"
-                  {...register("minchips")}
-                  onChange={handleSmallBlind}
-                />
-                {!!errors?.minchips && (
-              <p className="text-danger">{errors?.minchips?.message}</p>
-            )}
+                <div className='blindFields-box'>
+                  <div>
+                    {" "}
+                    <Form.Label>Small Blind</Form.Label>
+                    <Form.Control
+                      name='minchips'
+                      type='number'
+                      placeholder='Ex : 50'
+                      {...register("minchips")}
+                      onChange={handleSmallBlind}
+                    />
+                    {!!errors?.minchips && (
+                      <p className='text-danger'>{errors?.minchips?.message}</p>
+                    )}
+                  </div>
+                  <div>
+                    {" "}
+                    <Form.Label>Big Blind</Form.Label>
+                    <Form.Control
+                      name='maxchips'
+                      type='number'
+                      placeholder='Ex : 1000'
+                      {...register("maxchips")}
+                      disabled
+                    />
+                  </div>
+                </div>
               </div>
-              <div>
-                {" "}
-                <Form.Label>Big Blind</Form.Label>
-                <Form.Control
-                  name="maxchips" 
-                  type="number"
-                  placeholder="Ex : 1000"
-                  {...register("maxchips")}
-                  disabled
-                />
-              </div>
-            </div>
-            
-          </div>
-        </Form.Group>
+            </Form.Group>
 
-        <div className="searchSelectDropdown">
-          <Form.Label>Invite Users</Form.Label>
-          <Select
-            isMulti
-            onChange={handleChnageInviteUsers}
-            options={options}
-            styles={customStyles}
-          />
-          {!!errors?.invitedUsers && (
-            <p className="text-danger">{errors?.invitedUsers?.message}</p>
-          )}
-        </div>
-        <div className="createGameCheckHand">
-          <Form.Check
-            inline
-            label="Public Game"
-            name="public"
-            type="checkbox"
-            id={"public"}
-            onChange={handleChange}
-            // checked={values.public}
-          />
-          <Form.Check
-            inline
-            label="Auto Hand"
-            name="autohand"
-            type="checkbox"
-            id={"autohand"}
-            onChange={handleChange}
-            // checked={values.autohand}
-          />
-        </div>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={onHide}>
-          Close
-        </Button>
-        <Button variant="primary" type="submit" onClick={createTable}>
-          {spinLoader ? <Spinner animation="border" /> : "Create Table"}
-        </Button>
-      </Modal.Footer>
-      </Form>
-    </Modal>
-    
+            <div className='searchSelectDropdown'>
+              <Form.Label>Invite Users</Form.Label>
+              <Select
+                isMulti
+                onChange={handleChnageInviteUsers}
+                options={options}
+                styles={customStyles}
+              />
+              {!!errors?.invitedUsers && (
+                <p className='text-danger'>{errors?.invitedUsers?.message}</p>
+              )}
+            </div>
+            <div className='createGameCheckHand'>
+              <Form.Check
+                inline
+                label='Public Game'
+                name='public'
+                type='checkbox'
+                id={"public"}
+                onChange={handleChange}
+                // checked={values.public}
+              />
+              <Form.Check
+                inline
+                label='Auto Hand'
+                name='autohand'
+                type='checkbox'
+                id={"autohand"}
+                onChange={handleChange}
+                // checked={values.autohand}
+              />
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant='secondary' onClick={onHide}>
+              Close
+            </Button>
+            <Button variant='primary' type='submit' onClick={createTable}>
+              {spinLoader ? <Spinner animation='border' /> : "Create Table"}
+            </Button>
+          </Modal.Footer>
+        </Form>
+      </Modal>
     </div>
   );
 };
