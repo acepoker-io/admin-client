@@ -17,8 +17,8 @@ ls'''
   }
     stage('Upload Build') {
           steps {
-            sshPublisher(publishers: [sshPublisherDesc(configName: 'scrooge-casino', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''rm -rf /home/ubuntu/admin-client/build
-tar -xf /home/ubuntu/adminbuild.tar.gz -C /home/ubuntu/admin-client
+            sshPublisher(publishers: [sshPublisherDesc(configName: 'wptpoker', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''rm -rf /home/ubuntu/admin-frontend/build
+tar -xf /home/ubuntu/adminbuild.tar.gz -C /home/ubuntu/admin-frontend
 rm -rf /home/ubuntu/adminbuild.tar.gz''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'adminbuild.tar.gz')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
          }
         }
