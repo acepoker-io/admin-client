@@ -51,7 +51,10 @@ const LoginTabset = () => {
       setLoader(false);
       if (axios.isAxiosError(e) && e.response) {
         if (e.response.status !== 200) {
-          toast.error(e?.response?.data?.message, { toastId: "login" });
+          toast.error(
+            e?.response?.data?.message || "Credentials are not correct",
+            { toastId: "login" }
+          );
         }
       }
     }
