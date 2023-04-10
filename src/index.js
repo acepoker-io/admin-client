@@ -19,11 +19,11 @@ import "./components/admin.css";
 import "./components/custom.css";
 import UserList from "./components/users/userList";
 import Transaction from "./components/sales/transaction";
-import KycPage from "./components/kyc/index.js";
+// import KycPage from "./components/kyc/index.js";
 import Poker from "./components/sales/pokerGame.js";
-import BlackJackGame from "./components/sales/blackJackGame";
-import SlotsGame from "./components/sales/slotsGame";
-import RouletteGame from "./components/sales/rouletteGame";
+// import BlackJackGame from "./components/sales/blackJackGame";
+// import SlotsGame from "./components/sales/slotsGame";
+// import RouletteGame from "./components/sales/rouletteGame";
 import Profile from "./components/settings/profile";
 import ForgotPassword from "./components/auth/forgotPassword";
 import ResetPassword from "./components/auth/resetPassword";
@@ -84,8 +84,7 @@ const Root = () => {
           setAdmin,
           sidebar,
           setSidebar,
-        }}
-      >
+        }}>
         <Switch>
           <Route exact path={`${process.env.PUBLIC_URL}/`} component={Login} />
           <Route
@@ -120,26 +119,26 @@ const Root = () => {
               path={`${process.env.PUBLIC_URL}/transaction`}
               component={Transaction}
             />
-             <PrivateRoute
+            {/* <PrivateRoute
               path={`${process.env.PUBLIC_URL}/kyc`}
               component={KycPage}
-            />
+            /> */}
             <PrivateRoute
               path={`${process.env.PUBLIC_URL}/games/poker`}
               component={Poker}
             />
-            <PrivateRoute
+            {/* <PrivateRoute
               path={`${process.env.PUBLIC_URL}/games/blackjack`}
               component={BlackJackGame}
-            />
-            <PrivateRoute
+            /> */}
+            {/* <PrivateRoute
               path={`${process.env.PUBLIC_URL}/games/slots`}
               component={SlotsGame}
-            />
-            <PrivateRoute
+            /> */}
+            {/* <PrivateRoute
               path={`${process.env.PUBLIC_URL}/games/roulette`}
               component={RouletteGame}
-            />
+            /> */}
             <PrivateRoute
               path={`${process.env.PUBLIC_URL}/settings/profile`}
               component={Profile}

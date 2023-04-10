@@ -18,6 +18,7 @@ export const adminAuthInstance = () =>
   axios.create({
     baseURL: `${server}/v1/admin/auth`,
   });
+
 export const pokerTournamentInstance = () =>
   axios.create({
     baseURL: `${server}/v1/poker/tournament`,

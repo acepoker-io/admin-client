@@ -10,7 +10,6 @@
   font-size: 40px;
 }
 
-
 button:hover {
   box-shadow: 0 0 50px 0 hsl(0deg 0% 100% / 30%);
 }
@@ -215,6 +214,7 @@ a.btn.btn-primary:focus-visible {
 
 .tablecard .cardDetail h5 {
   margin-bottom: 0px !important;
+  text-transform: capitalize;
 }
 
 .tablecard .cardDetail button {
@@ -449,7 +449,7 @@ svg.searchlens:hover {
   box-shadow: none !important;
 }
 
-.threedotDiv .show>.btn-primary.dropdown-toggle {
+.threedotDiv .show > .btn-primary.dropdown-toggle {
   color: #fff !important;
 }
 
@@ -525,6 +525,7 @@ table::-webkit-scrollbar-track {
   width: 100% !important;
   border-radius: 30px !important;
   height: 44px !important;
+  padding-left: 48px !important;
 }
 
 .userInfoModal .react-tel-input .flag-dropdown {
@@ -952,7 +953,6 @@ p.error-msg {
   scroll-behavior: smooth;
 }
 
-
 .create-tournament-popup .modal-footer button {
   margin-top: 20px;
   max-width: 180px;
@@ -979,7 +979,7 @@ p.error-msg {
   background-color: rgba(0, 0, 0, 0);
 }
 
-.tab-pane.active.show .admin-table .table tr:nth-of-type(even)>* {
+.tab-pane.active.show .admin-table .table tr:nth-of-type(even) > * {
   background: #141414cc;
 }
 
@@ -995,7 +995,7 @@ p.error-msg {
   border-color: #495057 !important;
 }
 
-.page-main-header .main-header-right .nav-right>ul>li:first-child {
+.page-main-header .main-header-right .nav-right > ul > li:first-child {
   border-left: none;
   width: 100% !important;
 }
