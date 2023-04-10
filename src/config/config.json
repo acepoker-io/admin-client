@@ -4,18 +4,18 @@
     "admin": "http://localhost:3000"
   },
   "development": {
-    "server": "https://api.wptpoker.io/",
-    "admin": "https://admin.wptpoker.io/",
-    "client": "https://beta.wptpoker.io/"
+    "server": "https://api.wptpoker.io",
+    "admin": "https://admin.wptpoker.io",
+    "client": "https://beta.wptpoker.io"
   },
   "production": {
-    "server": "https://api.wptpoker.io/",
-    "admin": "https://admin.wptpoker.io/",
-    "client": "https://beta.wptpoker.io/"
+    "server": "https://api.wptpoker.io",
+    "admin": "https://admin.wptpoker.io",
+    "client": "https://beta.wptpoker.io"
   },
   "staging": {
-    "server": "https://api.wptpoker.io/",
-    "admin": "https://admin.wptpoker.io/",
-    "client": "https://beta.wptpoker.io/"
+    "server": "https://api.wptpoker.io",
+    "admin": "https://admin.wptpoker.io",
+    "client": "https://beta.wptpoker.io"
   }
 }
