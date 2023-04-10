@@ -81,7 +81,8 @@ const Sidebar = () => {
     }
 
     console.log("setNavActive executed");
-    if (item === "Logout") {
+    console.log("item ==>", item);
+    if (item?.title?.toLowerCase().trim() === "logout") {
       localStorage.clear();
       document.cookie = null;
     }

@@ -8,7 +8,7 @@ import { pokerTableSchema } from "../../../utils/validationSchema";
 import {
   adminAuthInstance,
   adminInstance,
-  pokerTournamentInstance,
+  // pokerTournamentInstance,
 } from "../../../config/axios";
 import axios from "axios";
 import { toast } from "react-toastify";
