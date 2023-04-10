@@ -4,12 +4,12 @@ import { Col, Container, Row } from "reactstrap";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer">
+      <footer className='footer'>
         <Container fluid={true}>
           <Row>
-            <Col md="12" className="footer-copyright">
-              <p className="mb-0">
-                Copyright 2023 © Scrooge LLC - All rights reserved.
+            <Col md='12' className='footer-copyright'>
+              <p className='mb-0'>
+                Copyright 2023 © WPT Poker - All rights reserved.
               </p>
             </Col>
           </Row>
