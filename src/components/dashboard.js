@@ -53,8 +53,8 @@ const Dashboard = () => {
       {
         lagend: "none",
         data: [2.5, 3, 3, 0.9, 1.3, 1.8, 3.8, 1.5],
-        borderColor: "#f9ff00",
-        backgroundColor: "#f9ff00",
+        borderColor: "#dc3545",
+        backgroundColor: "#dc3545",
         borderWidth: 2,
       },
       {
@@ -123,7 +123,7 @@ const Dashboard = () => {
   //     },
   //     {
   //       backgroundColor: "transparent",
-  //       borderColor: "#f9ff00",
+  //       borderColor: "#dc3545",
   //       data: [0, 30, 40, 10, 86, 40],
   //     },
   //   ],
@@ -133,7 +133,7 @@ const Dashboard = () => {
   //   title: "",
   //   pieHole: 0.35,
   //   pieSliceBorderColor: "none",
-  //   colors: ["#f9ff00", "#13c9ca", "#a5a5a5"],
+  //   colors: ["#dc3545", "#13c9ca", "#a5a5a5"],
   //   legend: {
   //     position: "none",
   //   },
@@ -154,7 +154,7 @@ const Dashboard = () => {
   //   pieHole: 1,
   //   slices: [
   //     {
-  //       color: "#f9ff00",
+  //       color: "#dc3545",
   //     },
   //     {
   //       color: "#13c9ca",
@@ -180,7 +180,7 @@ const Dashboard = () => {
   //     baselineColor: "transparent",
   //     gridlineColor: "transparent",
   //   },
-  //   colors: ["#f9ff00"],
+  //   colors: ["#dc3545"],
   //   legend: "none",
   // };
   // const LineOptions1 = {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { MENUITEMS } from "../../../constants/menu";
 
 // image import
-import logo from "../../../assets/images/Final Logo-01.jpg";
+import logo from "../../../assets/images/logo.png";
 import { useContext } from "react";
 import AdminContext from "../../context/adminContgext";
 import { useRef } from "react";
@@ -116,20 +116,21 @@ const Sidebar = () => {
   const mainMenu = mainmenu.map((menuItem, i) => (
     <li className={`${menuItem.active ? "active" : ""}`} key={i}>
       {menuItem.sidebartitle ? (
-        <div className='sidebar-title'>{menuItem.sidebartitle}</div>
+        <div className="sidebar-title">{menuItem.sidebartitle}</div>
       ) : (
         ""
       )}
       {menuItem.type === "sub" ? (
         <a
-          className='sidebar-header '
-          href='#javaScript'
-          onClick={() => setNavActive(menuItem)}>
-          <div className='links'>
+          className="sidebar-header "
+          href="#javaScript"
+          onClick={() => setNavActive(menuItem)}
+        >
+          <div className="links">
             <menuItem.icon />
             <span>{menuItem.title}</span>
           </div>
-          <i className='fa fa-angle-right pull-right'></i>
+          <i className="fa fa-angle-right pull-right"></i>
         </a>
       ) : (
         ""
@@ -138,13 +139,14 @@ const Sidebar = () => {
         <Link
           to={`${process.env.PUBLIC_URL}${menuItem.path}`}
           className={`sidebar-header ${menuItem.active ? "active" : ""}`}
-          onClick={() => setNavActive(menuItem)}>
-          <div className='links'>
+          onClick={() => setNavActive(menuItem)}
+        >
+          <div className="links">
             <menuItem.icon />
             <span>{menuItem.title}</span>
           </div>
           {menuItem.children ? (
-            <i className='fa fa-angle-right pull-right'></i>
+            <i className="fa fa-angle-right pull-right"></i>
           ) : (
             ""
           )}
@@ -159,7 +161,8 @@ const Sidebar = () => {
             menuItem.active
               ? { opacity: 1, transition: "opacity 500ms ease-in" }
               : {}
-          }>
+          }
+        >
           {menuItem.children.map((childrenItem, index) => (
             <li
               key={index}
@@ -169,14 +172,16 @@ const Sidebar = () => {
                     ? "active"
                     : ""
                   : ""
-              }>
+              }
+            >
               {childrenItem.type === "sub" ? (
                 <a
-                  href='#javaScript'
-                  onClick={() => setNavActive(childrenItem)}>
-                  <i className='fa fa-circle'></i>
+                  href="#javaScript"
+                  onClick={() => setNavActive(childrenItem)}
+                >
+                  <i className="fa fa-circle"></i>
                   {childrenItem.title}{" "}
-                  <i className='fa fa-angle-right pull-right'></i>
+                  <i className="fa fa-angle-right pull-right"></i>
                 </a>
               ) : (
                 ""
@@ -186,8 +191,9 @@ const Sidebar = () => {
                 <Link
                   to={`${process.env.PUBLIC_URL}${childrenItem.path}`}
                   className={childrenItem.active ? "active" : ""}
-                  onClick={() => setNavActive(childrenItem)}>
-                  <i className='fa fa-circle'></i>
+                  onClick={() => setNavActive(childrenItem)}
+                >
+                  <i className="fa fa-circle"></i>
                   {childrenItem.title}{" "}
                 </Link>
               ) : (
@@ -197,17 +203,20 @@ const Sidebar = () => {
                 <ul
                   className={`sidebar-submenu ${
                     childrenItem.active ? "menu-open" : "active"
-                  }`}>
+                  }`}
+                >
                   {childrenItem.children.map((childrenSubItem, key) => (
                     <li
                       className={childrenSubItem.active ? "active" : ""}
-                      key={key}>
+                      key={key}
+                    >
                       {childrenSubItem.type === "link" ? (
                         <Link
                           to={`${process.env.PUBLIC_URL}${childrenSubItem.path}`}
                           className={childrenSubItem.active ? "active" : ""}
-                          onClick={() => setNavActive(childrenSubItem)}>
-                          <i className='fa fa-circle'></i>
+                          onClick={() => setNavActive(childrenSubItem)}
+                        >
+                          <i className="fa fa-circle"></i>
                           {childrenSubItem.title}
                         </Link>
                       ) : (
@@ -231,16 +240,16 @@ const Sidebar = () => {
   return (
     <Fragment>
       <div className={`page-sidebar `} ref={wrapperRef}>
-        <div className='main-header-left d-none d-lg-block'>
-          <div className='logo-wrapper'>
+        <div className="main-header-left d-none d-lg-block">
+          <div className="logo-wrapper">
             <Link to={`${process.env.PUBLIC_URL}/dashboard`}>
-              <img className='blur-up lazyloaded' src={logo} alt='' />
+              <img className="blur-up lazyloaded" src={logo} alt="" />
             </Link>
           </div>
         </div>
-        <div className='sidebar'>
+        <div className="sidebar">
           <UserPanel />
-          <ul className='sidebar-menu'>{mainMenu}</ul>
+          <ul className="sidebar-menu">{mainMenu}</ul>
         </div>
       </div>
     </Fragment>

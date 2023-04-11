@@ -6,7 +6,7 @@ import LoginTabset from "./loginTabset";
 import "../../assets/scss/slick.scss";
 import "../../assets/scss/slick-theme.scss";
 import { Card, CardBody, Container } from "reactstrap";
-import logo from "../../assets/images/Final Logo-01.jpg";
+import logo from "../../assets/images/logo.png";
 
 const Login = () => {
   // var settings = {
@@ -17,11 +17,11 @@ const Login = () => {
   // };
   return (
     <Fragment>
-      <div className='page-wrapper login-page'>
-        <div className='authentication-box'>
+      <div className="page-wrapper login-page">
+        <div className="authentication-box">
           <Container>
-            <Card className='tab2-card'>
-              <img src={logo} alt='logo' />
+            <Card className="tab2-card">
+              <img src={logo} alt="logo" />
               {/* <h3>Login</h3> */}
               <CardBody>
                 <LoginTabset />

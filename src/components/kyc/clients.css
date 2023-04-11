@@ -275,7 +275,7 @@ button.popup-confirm-btn.btn.btn-primary {
   justify-content: center;
   align-items: center;
   max-width: 190px;
-    width: 100%;
+  width: 100%;
 }
 
 .kyc-request-popup .popup-btn-grid.desktop-btn-view {
@@ -295,13 +295,13 @@ button.popup-confirm-btn.btn.btn-primary {
 .kycContainer-card .page-item.active .page-link {
   z-index: 3;
   color: black;
-  background-color: #f9ff00;
-  border-color: #f9ff00;
+  background-color: #dc3545;
+  border-color: #dc3545;
   font-weight: 600;
 }
 
 .kycContainer-card .table-loader .spinner-border {
-  color: #f9ff00 !important;
+  color: #dc3545 !important;
   border-width: 3px;
 }
 
@@ -318,8 +318,8 @@ button.popup-confirm-btn.btn.btn-primary {
   margin-left: -1px;
   line-height: 1.25;
   color: #000000;
-  background-color: #f9ff00;
-  border: 1px solid #f9ff00;
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
 }
 
 .kycContainer-card .page-item.disabled .page-link {
@@ -343,10 +343,13 @@ button.popup-confirm-btn.btn.btn-primary {
   right: 0;
   min-height: 87px;
 }
-.la, .las {
+
+.la,
+.las {
   font-family: 'Line Awesome Free' !important;
   font-weight: 900 !important;
 }
+
 .kyc-request-popup button.close {
   color: #fff !important;
 }
