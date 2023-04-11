@@ -21,46 +21,46 @@ const customStyles = {
   }),
   option: (provided) => ({
     ...provided,
-    background: "#000",
-    color: "#ddd",
+    background: "#ebe8e8",
+    color: "#000",
     fontWeight: "400",
     fontSize: "16px",
     padding: "10px 20px",
     lineHeight: "16px",
     cursor: "pointer",
     borderRadius: "4px",
-    borderBottom: "1px solid #141414",
+    borderBottom: "1px solid #ebe8e8",
     ":hover": {
-      background: "#141414",
+      background: "#ebe8e8",
       borderRadius: "4px",
     },
   }),
   menu: (provided) => ({
     ...provided,
-    background: "#000",
+    background: "#ebe8e8",
     borderRadius: "30px",
     padding: "10px 20px",
     border: "2px solid transparent",
   }),
   control: () => ({
-    background: "#000",
-    border: "2px solid #000",
+    background: "#ebe8e8",
+    border: "2px solid #ebe8e8",
     borderRadius: "30px",
-    color: "#fff",
+    color: "#000",
     display: "flex",
     alignItem: "center",
     height: "41",
     margin: "2px 0",
-    boxShadow: " 0 2px 10px #000000a5",
+    boxShadow: " 0 2px 10px #ebe8e8",
     cursor: "pointer",
     ":hover": {
-      background: "#000",
+      background: "#ebe8e8",
       // border: "2px solid #306CFE",
     },
   }),
   singleValue: (provided) => ({
     ...provided,
-    color: "#fff",
+    color: "#000",
     fontWeight: "400",
     fontSize: "14px",
     lineHeight: "16px",
@@ -178,53 +178,56 @@ const CreatePokerTableModal = ({ show, onHide, getAllPokerTable, setShow }) => {
         onHide={() => {
           onHide();
         }}
-        className='create-tournament-popup createOpenTable'>
+        className="create-tournament-popup createOpenTable"
+      >
         <Form onSubmit={handleSubmit(createTable)}>
           <Modal.Header closeButton>
             <Modal.Title>Create Table</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form.Group
-              className='form-group'
-              controlId='formPlaintextPassword'>
+              className="form-group"
+              controlId="formPlaintextPassword"
+            >
               <Form.Label>Enter Game name</Form.Label>
               <Form.Control
-                name='gameName'
-                type='text'
+                name="gameName"
+                type="text"
                 placeholder="Ex : John's game"
                 {...register("gameName")}
               />
               {!!errors?.gameName && (
-                <p className='text-danger'>{errors?.gameName?.message}</p>
+                <p className="text-danger">{errors?.gameName?.message}</p>
               )}
             </Form.Group>
             <Form.Group
-              className='form-group blindpopupField'
-              controlId='formPlaintextPassword'>
+              className="form-group blindpopupField"
+              controlId="formPlaintextPassword"
+            >
               <div>
                 {" "}
-                <div className='blindFields-box'>
+                <div className="blindFields-box">
                   <div>
                     {" "}
                     <Form.Label>Small Blind</Form.Label>
                     <Form.Control
-                      name='minchips'
-                      type='number'
-                      placeholder='Ex : 50'
+                      name="minchips"
+                      type="number"
+                      placeholder="Ex : 50"
                       {...register("minchips")}
                       onChange={handleSmallBlind}
                     />
                     {!!errors?.minchips && (
-                      <p className='text-danger'>{errors?.minchips?.message}</p>
+                      <p className="text-danger">{errors?.minchips?.message}</p>
                     )}
                   </div>
                   <div>
                     {" "}
                     <Form.Label>Big Blind</Form.Label>
                     <Form.Control
-                      name='maxchips'
-                      type='number'
-                      placeholder='Ex : 1000'
+                      name="maxchips"
+                      type="number"
+                      placeholder="Ex : 1000"
                       {...register("maxchips")}
                       disabled
                     />
@@ -233,7 +236,7 @@ const CreatePokerTableModal = ({ show, onHide, getAllPokerTable, setShow }) => {
               </div>
             </Form.Group>
 
-            <div className='searchSelectDropdown'>
+            <div className="searchSelectDropdown">
               <Form.Label>Invite Users</Form.Label>
               <Select
                 isMulti
@@ -242,24 +245,24 @@ const CreatePokerTableModal = ({ show, onHide, getAllPokerTable, setShow }) => {
                 styles={customStyles}
               />
               {!!errors?.invitedUsers && (
-                <p className='text-danger'>{errors?.invitedUsers?.message}</p>
+                <p className="text-danger">{errors?.invitedUsers?.message}</p>
               )}
             </div>
-            <div className='createGameCheckHand'>
+            <div className="createGameCheckHand">
               <Form.Check
                 inline
-                label='Public Game'
-                name='public'
-                type='checkbox'
+                label="Public Game"
+                name="public"
+                type="checkbox"
                 id={"public"}
                 onChange={handleChange}
                 // checked={values.public}
               />
               <Form.Check
                 inline
-                label='Auto Hand'
-                name='autohand'
-                type='checkbox'
+                label="Auto Hand"
+                name="autohand"
+                type="checkbox"
                 id={"autohand"}
                 onChange={handleChange}
                 // checked={values.autohand}
@@ -267,11 +270,11 @@ const CreatePokerTableModal = ({ show, onHide, getAllPokerTable, setShow }) => {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant='secondary' onClick={onHide}>
+            <Button variant="secondary" onClick={onHide}>
               Close
             </Button>
-            <Button variant='primary' type='submit' onClick={createTable}>
-              {spinLoader ? <Spinner animation='border' /> : "Create Table"}
+            <Button variant="primary" type="submit" onClick={createTable}>
+              {spinLoader ? <Spinner animation="border" /> : "Create Table"}
             </Button>
           </Modal.Footer>
         </Form>

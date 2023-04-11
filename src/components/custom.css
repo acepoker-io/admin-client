@@ -88,9 +88,9 @@ input:hover {
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: #141414;
+  background-color: #ffffff;
   background-clip: padding-box;
-  border: 1px solid #141414;
+  border: 1px solid #ddd;
   border-radius: 0.3rem;
   outline: 0;
 }
@@ -100,9 +100,17 @@ input:hover {
   font-size: 2rem;
   font-weight: 200;
   line-height: 1;
-  color: #fff;
+  color: #323232;
   text-shadow: none !important;
   opacity: 0.5;
+}
+
+.modal-header .close {
+  padding: 1rem 1rem;
+  margin: -1rem -1rem -1rem auto;
+  color: black;
+  font-size: 35px;
+  font-weight: 500;
 }
 
 .close:not(:disabled):not(.disabled):hover,
@@ -119,23 +127,25 @@ input:hover {
 .modal.show .modal-dialog button:active,
 .modal.show .modal-dialog button:focus {
   box-shadow: none !important;
+  color: rgb(0, 0, 0);
 }
 
 .modal-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 1rem 1rem;
-  border-bottom: none !important;
+  padding: 1rem 1rem 0.5rem 1rem;
+  border-bottom: 1px solid #ddd !important;
   border-top-left-radius: calc(0.3rem - 1px);
   border-top-right-radius: calc(0.3rem - 1px);
+  color: black !important;
 }
 
 .modal-body {
   position: relative;
   flex: 1 1 auto;
   padding: 1rem 1.5rem 0rem 1.5rem;
-  color: rgb(214, 214, 214);
+  color: rgb(0 0 0);
 }
 
 .modal-title h4 {
@@ -157,9 +167,9 @@ input:hover {
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active {
-  background-color: #f9ff00 !important;
-  border-color: #f9ff00 !important;
-  color: black !important;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: rgb(255, 255, 255) !important;
 }
 
 a.btn.btn-primary:focus-visible {
@@ -178,25 +188,26 @@ a.btn.btn-primary:focus-visible {
 .OpenTable .tableCards .tablecard {
   min-width: 130px;
   width: 100%;
-  background-color: #202020;
+  background-color: #ddd;
   display: flex;
   flex-direction: column;
   border-radius: 6px;
-  border: 1px solid #2e2e2e;
+  border: 1px solid #ddd;
 }
 
 .tablecard .cardImgContainer {
   position: relative;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  background-color: #0e0d0d;
+  background-color: #ffffff;
 }
 
 .tablecard .cardImgContainer img {
   width: 100%;
-  height: 120px;
+  height: 80px;
   object-fit: contain;
-  opacity: 0.7;
+  opacity: 1;
+  margin: 10px auto;
 }
 
 .tablecard .cardDetail {
@@ -204,6 +215,8 @@ a.btn.btn-primary:focus-visible {
   flex-direction: column;
   gap: 5px;
   padding: 10px;
+  color: #000;
+
 }
 
 .tablecard .cardDetail .allUsersImg {
@@ -242,12 +255,12 @@ a.btn.btn-primary:focus-visible {
   justify-content: center;
   width: 100%;
   height: 250px;
-  background-color: #202020;
+  background-color: #ddd;
   border-radius: 6px;
 }
 
 .transactionSelect .selectContainer {
-  background-color: #202020;
+  background-color: #ffffff;
   width: 180px;
   padding: 0px 10px;
   border-radius: 6px;
@@ -256,8 +269,8 @@ a.btn.btn-primary:focus-visible {
 .transactionSelect .selectContainer .form-control {
   border: none !important;
   cursor: pointer;
-  padding: 0px !important;
-  background-color: #202020 !important;
+  padding: 0px 18px !important;
+  background-color: #e9eaec !important;
 }
 
 .searchFromInput,
@@ -279,7 +292,7 @@ svg.searchlens {
 }
 
 svg.searchlens:hover {
-  fill: #f9ff00;
+  fill: #dc3545;
 }
 
 .css-13cymwt-control,
@@ -376,8 +389,8 @@ svg.searchlens:hover {
   left: -250% !important;
   margin: 0px;
   transform: translate(-25px, 40px) !important;
-  background-color: #2b2d2e !important;
-  color: #fff !important;
+  background-color: #dddd !important;
+  color: #000 !important;
   display: flex !important;
   flex-direction: column !important;
   gap: 6px !important;
@@ -386,9 +399,9 @@ svg.searchlens:hover {
 
 .threedotDiv .dropdown-item:hover,
 .dropdown-item:focus {
-  color: #ffffff !important;
+  color: #000000 !important;
   text-decoration: none;
-  background-color: #202122 !important;
+  background-color: #c3c3c3 !important;
 }
 
 .threedotDiv .dropdown-item {
@@ -399,7 +412,7 @@ svg.searchlens:hover {
   padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
-  color: #ffffff !important;
+  color: #000000 !important;
   text-align: inherit;
   white-space: nowrap;
   background-color: transparent;
@@ -422,7 +435,7 @@ svg.searchlens:hover {
 .threedotDiv .btn-primary:focus,
 .threedotDiv .btn-primary:active,
 .threedotDiv .btn-primary:hover {
-  color: rgb(255, 255, 255) !important;
+  color: rgb(0 0 0) !important;
 }
 
 .threedotDiv .btn-primary {
@@ -449,7 +462,7 @@ svg.searchlens:hover {
   box-shadow: none !important;
 }
 
-.threedotDiv .show > .btn-primary.dropdown-toggle {
+.threedotDiv .show>.btn-primary.dropdown-toggle {
   color: #fff !important;
 }
 
@@ -458,7 +471,7 @@ svg.searchlens:hover {
 .userWalletModal p {
   font-size: 16px !important;
   margin-bottom: 0px !important;
-  color: #f9ff00;
+  color: #dc3545;
   font-size: 16px;
   line-height: 1.7;
   letter-spacing: 0.7px;
@@ -469,6 +482,7 @@ svg.searchlens:hover {
 .userWalletModal .modal-title.h4 {
   text-align: center;
   width: 100%;
+  color: black;
 }
 
 .userBlockModal .opentableModal h4 {
@@ -486,6 +500,7 @@ svg.searchlens:hover {
   margin-bottom: 0px !important;
   line-height: 28px !important;
   text-transform: none !important;
+  color: #000000;
 }
 
 .userInfoModal .modal-title.h4 {
@@ -496,7 +511,7 @@ svg.searchlens:hover {
 .userWalletModal .form-control,
 .userWalletModal .form-control:active,
 .userWalletModal .form-control:focus {
-  color: #f9ff00 !important;
+  color: #dc3545 !important;
 }
 
 .userInfoModal label.form-label {
@@ -510,7 +525,7 @@ svg.searchlens:hover {
   width: 16px !important;
   position: absolute;
   right: 10px;
-  color: #f9ff00;
+  color: #dc3545;
 }
 
 table::-webkit-scrollbar-track {
@@ -526,15 +541,17 @@ table::-webkit-scrollbar-track {
   border-radius: 30px !important;
   height: 44px !important;
   padding-left: 48px !important;
+  background: #ebe8e8;
+  border: 1px solid #ebe8e8;
 }
 
 .userInfoModal .react-tel-input .flag-dropdown {
   position: absolute;
   top: 0;
   bottom: 0;
-  border: 1px solid #4e4e4e;
+  border: 1px solid #ddd;
   padding: 0;
-  background-color: #151515;
+  background-color: #ddd;
   border-radius: 30px 0 0 30px;
   border-right: 0px;
 }
@@ -618,6 +635,9 @@ table::-webkit-scrollbar-track {
 
 .forgotpasswdh {
   text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
 }
 
 .resetPasswordLink {
@@ -714,12 +734,14 @@ p.error-msg {
   bottom: 2px;
   left: 2px;
 }
+
 .trashTable svg {
   width: 16px;
   display: flex;
-  color: #f9ff00;
+  color: #dc3545;
   cursor: pointer;
 }
+
 @media screen and (max-width: 1400px) {
   .OpenTable .tableCards {
     grid-template-columns: repeat(6, minmax(0, 100%));
@@ -844,6 +866,7 @@ p.error-msg {
   font-size: 10px;
   padding: 2px 15px;
   text-transform: capitalize;
+  background: #fff !important;
 }
 
 .dashboardViewAllCard th {
@@ -855,6 +878,7 @@ p.error-msg {
   vertical-align: top;
   font-size: 12px !important;
   border-top: none !important;
+  color: black !important;
 }
 
 .dashboardViewAllCard .latest-user-image img {
@@ -909,7 +933,7 @@ p.error-msg {
   cursor: pointer;
   height: 20px;
   width: 20px;
-  fill: #f9ff00;
+  fill: #dc3545;
 }
 
 .settingUserImg .form-control-file {
@@ -951,6 +975,7 @@ p.error-msg {
   height: 100% !important;
   overflow-y: auto;
   scroll-behavior: smooth;
+  margin-top: 10px;
 }
 
 .create-tournament-popup .modal-footer button {
@@ -979,7 +1004,7 @@ p.error-msg {
   background-color: rgba(0, 0, 0, 0);
 }
 
-.tab-pane.active.show .admin-table .table tr:nth-of-type(even) > * {
+.tab-pane.active.show .admin-table .table tr:nth-of-type(even)>* {
   background: #141414cc;
 }
 
@@ -995,7 +1020,7 @@ p.error-msg {
   border-color: #495057 !important;
 }
 
-.page-main-header .main-header-right .nav-right > ul > li:first-child {
+.page-main-header .main-header-right .nav-right>ul>li:first-child {
   border-left: none;
   width: 100% !important;
 }

@@ -484,7 +484,7 @@ a {
       li {
         padding: 10px;
         border-radius: 100%;
-        border: 1px solid #f9ff00;
+        border: 1px solid #dc3545;
         height: 40px;
         width: 40px;
         margin-right: 10px;
@@ -565,6 +565,7 @@ a {
       .sidebar-menu {
         li {
           width: 100%;
+          border-bottom: 1px solid #e8dfdf;
         }
       }
     }
@@ -608,7 +609,7 @@ a {
       width: 50px;
       height: 50px;
       border-radius: 100%;
-      background-color: black;
+      background-color: #fafafa;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -643,7 +644,7 @@ a {
         th {
           border-top: 0;
           font-size: 16px;
-          color: $dark-color;
+          color: black;
           font-weight: 600;
           padding-top: 0;
           white-space: nowrap;
@@ -944,7 +945,7 @@ a {
   ul {
     margin-bottom: 30px;
     border-bottom: 1px solid #272828;
-        li {
+    li {
       svg {
         width: 18px;
         vertical-align: middle;
@@ -1515,10 +1516,10 @@ a {
   letter-spacing: 0.5px;
   border-radius: $card-border-radious;
   .card-header {
-    background-color: rgb(21 21 21);
+    background-color: #dc3545;
     border-bottom: none;
     padding: 15px 30px;
-    border-bottom: 1px solid #202020;
+    border-bottom: 1px solid #dc3545;
     border-top-left-radius: $card-border-radious;
     border-top-right-radius: $card-border-radious;
     h5 {
@@ -1538,7 +1539,7 @@ a {
   }
   .card-body {
     padding: 20px 30px;
-    background-color: #151515;
+    background-color: #ffffff;
     border-radius: 6px;
     p {
       &:last-child {
@@ -1573,7 +1574,7 @@ a {
       Footer CSS Start
 ==========================**/
 footer {
-  background-color: #151515;
+  background-color: #ffffff;
   padding: 15px;
   bottom: 0;
   left: 0;
@@ -1589,7 +1590,7 @@ footer {
       bottom: 0;
       z-index: 8;
       p {
-        color: rgb(165, 165, 165);
+        color: #dc3545;
         text-align: center;
         i {
           color: $danger-color;
@@ -1636,7 +1637,7 @@ h2 {
 h3 {
   font-size: 24px;
   font-weight: 400;
-  color: $grey;
+  color: #000000;
   letter-spacing: 0.03em;
 }
 
@@ -1646,6 +1647,7 @@ h4 {
   font-weight: 400;
   letter-spacing: 0.03em;
   line-height: 1;
+  color: #000;
 }
 
 del {
@@ -1774,7 +1776,7 @@ $header-size: 80px;
     height: 0;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
-    border-bottom: 7px solid #151515;
+    border-bottom: 7px solid #ddd;
     content: "";
     top: -7px;
     position: absolute;
@@ -1818,7 +1820,7 @@ $header-size: 80px;
 }
 .page-wrapper {
   .page-main-header {
-    background-color: #151515;
+    background-color: #ffffff;
     height: $header-size;
     position: $main-header-position;
     top: $main-header-top;
@@ -1840,7 +1842,7 @@ $header-size: 80px;
       margin-top: $header-size;
       padding: $page-body-padding;
       position: relative;
-      background-color: #202020;
+      background-color: #f2f2f2;
     }
     .page-header {
       padding-top: $page-header-padding;
@@ -1857,13 +1859,15 @@ $header-size: 80px;
           font-weight: $page-title-font-weight;
           text-transform: $page-title-text-tranform;
           font-family: $font-nunito;
+          color: #000;
           small {
             display: block;
             font-size: 12px;
+            font-weight: 600;
             margin-top: 7px;
             letter-spacing: 1px;
             text-transform: capitalize;
-            color: $theme-body-sub-title-color;
+            color: #202020;
           }
         }
       }
@@ -1893,8 +1897,8 @@ $header-size: 80px;
 }
 .page-wrapper.open .page-sidebar {
   margin-left: -255px;
-  transition: .3s;
-} 
+  transition: 0.3s;
+}
 .page-wrapper .page-body {
   margin-left: 255px;
   transition: $sidebar-transition;
@@ -1903,7 +1907,6 @@ $header-size: 80px;
   margin-left: 0;
   transition: $sidebar-transition;
 }
-
 
 /*======= Page Header css ends  ======= */
 
@@ -2145,12 +2148,12 @@ $header-size: 80px;
         left: inherit;
         width: 150px;
         top: 63px;
-        box-shadow: 0px 0px 10px #202020;
+        box-shadow: 0px 0px 10px #ddd;
         &:before,
         &:after {
           left: inherit;
           right: 10px;
-          background-color: #151515;
+          background-color: #dddddd00;
         }
         li {
           display: block;
@@ -2180,7 +2183,7 @@ $header-size: 80px;
             }
           }
           a {
-            color: $theme-body-font-color;
+            color: #000000;
             transition: $sidebar-transition;
             display: flex;
             align-items: center;
@@ -2225,7 +2228,7 @@ $header-size: 80px;
       border: 1px solid #3b3b3b;
       padding: 10px 10px 10px 50px;
       border-radius: 50px;
-      background-color: #151515;
+      background-color: #fff;
       color: white;
     }
   }
@@ -2291,7 +2294,7 @@ ul.notification-dropdown.onhover-show-div {
   top: $header-size;
   position: absolute;
   z-index: 8;
-  background-color: #151515;
+  background-color: #dddd;
   transition: all linear 0.3s;
   @extend %for-animated-hover;
   li {
@@ -2319,19 +2322,19 @@ ul.notification-dropdown.onhover-show-div {
     .page-sidebar {
       width: $sidebar-width;
       position: $sidebar-position;
-      background: #151515;
+      background: #fff;
       top: 0;
       height: calc(100vh);
       z-index: $sidebar-z-index;
       transition: $sidebar-transition;
-      border-right: 2px solid #262525;
+      border-right: 2px solid #f0eded;
       .main-header-left {
         display: inline-flex;
         width: 100%;
         height: $header-size;
         padding: $main-header-padding;
         align-items: center;
-        background: #151515;
+        background: #ffffff;
         z-index: $main-header-z-index;
         .logo-wrapper {
           padding-left: 10px;
@@ -2343,6 +2346,7 @@ ul.notification-dropdown.onhover-show-div {
       .sidebar-user {
         padding: $sidebar-user-section-padding;
         position: relative;
+        border-bottom: 1px solid #ddd;
         h6 {
           color: $sidebar-profile-name-txt-color;
           text-transform: $sidebar-profile-name-txt-transfer;
@@ -2355,6 +2359,7 @@ ul.notification-dropdown.onhover-show-div {
           font-weight: $sidebar-profile-name-txt-weight;
           font-size: $sidebar-profile-sub-title-font-size;
           margin-bottom: $sidebar-profile-sub-title-margin;
+          color: #000;
         }
       }
       .sidebar-menu {
@@ -2409,6 +2414,7 @@ ul.notification-dropdown.onhover-show-div {
               text-align: right;
               margin-top: 3px;
               font-size: $sidebar-arrow-size;
+              color: #000;
               &:before {
                 content: $sidebar-close-icon;
               }
@@ -2495,7 +2501,7 @@ ul.notification-dropdown.onhover-show-div {
               padding-bottom: 7px;
               padding-top: 7px;
               font-size: 14px;
-              color: $dark-gray;
+              color: #000000;
               transition: $sidebar-transition;
               text-transform: $sidebar-text-transform;
               position: relative;
@@ -3464,7 +3470,7 @@ $i: 1;
         .mobile-sidebar {
           position: absolute;
           right: 40px;
-      }
+        }
         .nav-right {
           // position: unset;
           padding: 0;
@@ -3473,8 +3479,8 @@ $i: 1;
               width: 40px !important;
               height: 40px !important;
             }
-             top: -30px;
-             right: 50px;
+            top: -30px;
+            right: 50px;
             // position: absolute;
             // z-index: -1;
             // background-color: #1a1a1a;
@@ -3492,7 +3498,6 @@ $i: 1;
             > li {
               margin: 10px 0;
             }
-            
           }
           > .mobile-toggle {
             cursor: pointer;
@@ -3862,10 +3867,10 @@ $i: 1;
         padding: 0 15px;
         .mobile-sidebar {
           right: 20px;
-      }
-      .switch-sm .switch {
-        margin: 0;
-      }
+        }
+        .switch-sm .switch {
+          margin: 0;
+        }
         .nav-right {
           > ul {
             padding: 0 0;

@@ -2,8 +2,7 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 import Button from "react-bootstrap/Button";
 import { Input, FormGroup } from "reactstrap";
-import game1 from "../../../assets/images/game/game1.svg";
-// import game2 from "../../../assets/images/game/game2.svg";
+import game1 from "../../../assets/images/logo.png"; // import game2 from "../../../assets/images/game/game2.svg";
 // import game3 from "../../../assets/images/game/game3.svg";
 import user from "../../../assets/images/game/dummy.png";
 // import CreateTableModal from "./createTableModal";
@@ -53,7 +52,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -72,7 +70,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
 
@@ -92,7 +89,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -111,7 +107,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -130,7 +125,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -149,7 +143,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -168,7 +161,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -187,7 +179,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -206,7 +197,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -225,7 +215,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -244,7 +233,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -263,7 +251,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -282,7 +269,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -301,7 +287,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -320,7 +305,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -339,7 +323,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
           <div className="tablecard">
@@ -358,7 +341,6 @@ const OpenTable = () => {
                 </div>
                 <div className="allUsersCount">5 People</div>
               </div>
-               
             </div>
           </div>
         </div>
