@@ -1,6 +1,6 @@
 import React from "react";
 // import poker from "../asset/Loader.png";
-import poker from "../../assets/Loader.png";
+import poker from "../../assets/images/logo.png";
 import "./loader.css";
 
 function Loader() {
