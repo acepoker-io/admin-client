@@ -2,72 +2,72 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Select from "react-select";
+// import Select from "react-select";
 import Spinner from "react-bootstrap/Spinner";
-const options = [
-  { value: "Adam", label: "Adam" },
-  { value: "Roxie", label: "Roxie" },
-  { value: "John", label: "John" },
-];
-const customStyles = {
-  option: (provided) => ({
-    ...provided,
-    background: "#2a2a2a",
-    color: "#fff",
-    fontWeight: "400",
-    fontSize: "16px",
-    padding: "12px",
-    lineHeight: "16px",
-    cursor: "pointer",
-    ":hover": {
-      background: "#151515",
-      border: "none !important",
-    },
-  }),
-  menu: (provided) => ({
-    ...provided,
-    background: "rgb(21 21 21)",
-    padding: "0px",
-    border: "1px solid #2a2a2a",
-  }),
-  control: () => ({
-    background: "rgb(21 21 21)",
-    border: "1px solid #4e4e4e !important",
-    borderRadius: "30px",
-    padding: "0.375rem 0.75rem",
-    color: "#fff",
-    display: "flex",
-    alignItem: "center",
-    height: "44px",
-    ":hover": {
-      background: "rgb(21 21 21)",
-      border: "1px solid #4e4e4e !important",
-    },
-  }),
-  singleValue: (provided) => ({
-    ...provided,
-    color: "#fff",
-    fontWeight: "400",
-    fontSize: "14px",
-    lineHeight: "16px",
-  }),
-  indicatorSeparator: (provided) => ({
-    ...provided,
-    display: "none",
-  }),
-  placeholder: (provided) => ({
-    ...provided,
-    fontWeight: "400",
-    fontSize: "16px",
-    lineHeight: "19px",
-    color: "rgb(93 101 107)",
-  }),
-  input: (provided) => ({
-    ...provided,
-    color: "#fff",
-    fontSize: "1rem",
-  }),
-};
+// const options = [
+//   { value: "Adam", label: "Adam" },
+//   { value: "Roxie", label: "Roxie" },
+//   { value: "John", label: "John" },
+// ];
+// const customStyles = {
+//   option: (provided) => ({
+//     ...provided,
+//     background: "#2a2a2a",
+//     color: "#fff",
+//     fontWeight: "400",
+//     fontSize: "16px",
+//     padding: "12px",
+//     lineHeight: "16px",
+//     cursor: "pointer",
+//     ":hover": {
+//       background: "#151515",
+//       border: "none !important",
+//     },
+//   }),
+//   menu: (provided) => ({
+//     ...provided,
+//     background: "rgb(21 21 21)",
+//     padding: "0px",
+//     border: "1px solid #2a2a2a",
+//   }),
+//   control: () => ({
+//     background: "rgb(21 21 21)",
+//     border: "1px solid #4e4e4e !important",
+//     borderRadius: "30px",
+//     padding: "0.375rem 0.75rem",
+//     color: "#fff",
+//     display: "flex",
+//     alignItem: "center",
+//     height: "44px",
+//     ":hover": {
+//       background: "rgb(21 21 21)",
+//       border: "1px solid #4e4e4e !important",
+//     },
+//   }),
+//   singleValue: (provided) => ({
+//     ...provided,
+//     color: "#fff",
+//     fontWeight: "400",
+//     fontSize: "14px",
+//     lineHeight: "16px",
+//   }),
+//   indicatorSeparator: (provided) => ({
+//     ...provided,
+//     display: "none",
+//   }),
+//   placeholder: (provided) => ({
+//     ...provided,
+//     fontWeight: "400",
+//     fontSize: "16px",
+//     lineHeight: "19px",
+//     color: "rgb(93 101 107)",
+//   }),
+//   input: (provided) => ({
+//     ...provided,
+//     color: "#fff",
+//     fontSize: "1rem",
+//   }),
+// };
 
 const CreateTableModal = ({ show, onHide, modalName }) => {
   const [spinLoader, setSpinLoader] = useState(false);
@@ -106,10 +106,10 @@ const CreateTableModal = ({ show, onHide, modalName }) => {
                 </Form.Group>
               </div>
             </div>
-            <div className='searchSelectDropdown'>
+            {/* <div className='searchSelectDropdown'>
               <h4>Invite Users</h4>
               <Select options={options} styles={customStyles} />
-            </div>
+            </div> */}
           </div>
         </Modal.Body>
         <Modal.Footer>

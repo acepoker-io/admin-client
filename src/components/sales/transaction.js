@@ -18,7 +18,6 @@ import ReactPaginate from "react-paginate";
 import { adminAuthInstance } from "../../config/axios";
 import axios from "axios";
 import { toast } from "react-toastify";
-import user from "../../assets/images/user.png";
 import Loader from "../pageLoader/loader";
 let options = {
   weekday: "long",
@@ -72,43 +71,42 @@ const Transaction = () => {
   return (
     <>
       {loader && <Loader />}
-      <div className="userlist-page">
-        <Breadcrumb title="Transaction" parent="Transaction" />
+      <div className='userlist-page'>
+        <Breadcrumb title='Transaction' parent='Transaction' />
         <Container fluid={true}>
           <Row>
-            <Col sm="12">
+            <Col sm='12'>
               <Card>
-                <CardHeader className="transactionSelect">
-                  <div className="selectContainer">
+                <CardHeader className='transactionSelect'>
+                  <div className='selectContainer'>
                     <select
-                      aria-label="Default select example"
-                      className="form-control"
-                      onChange={(e) => setFilter(e.target.value)}
-                    >
-                      <option value="">All Transaction</option>
-                      <option value="poker">Poker</option>
-                      <option value="blackjack">Blackjack</option>
-                      <option value="slot">Slot</option>
+                      aria-label='Default select example'
+                      className='form-control'
+                      onChange={(e) => setFilter(e.target.value)}>
+                      <option value=''>All Transaction</option>
+                      <option value='poker'>Poker</option>
+                      <option value='blackjack'>Blackjack</option>
+                      <option value='slot'>Slot</option>
                     </select>
                   </div>
-                  <FormGroup className="searchFromgroup">
+                  <FormGroup className='searchFromgroup'>
                     <Input
-                      type="text"
-                      name="search"
-                      id="exampleEmail"
-                      placeholder="Search here..."
-                      className="searchFromInput"
+                      type='text'
+                      name='search'
+                      id='exampleEmail'
+                      placeholder='Search here...'
+                      className='searchFromInput'
                     />
-                    <FaSearch className="searchlens" />
+                    <FaSearch className='searchlens' />
                   </FormGroup>
                 </CardHeader>
-                <CardBody className="user-datatable">
+                <CardBody className='user-datatable'>
                   {allTransaction && allTransaction?.length > 0 ? (
                     <Table responsive>
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Avatar</th>
+                          {/* <th>Avatar</th> */}
                           <th>Username</th>
                           <th>Tokens</th>
                           <th>Source Type</th>
@@ -120,24 +118,23 @@ const Transaction = () => {
                       <tbody>
                         {allTransaction?.map((el, i) => (
                           <tr>
-                            <th scope="row">
+                            <th scope='row'>
                               {(currentPage - 1) * 10 + (i + 1)}
                             </th>
-                            <td className="latest-user-image">
+                            {/* <td className="latest-user-image">
                               <img
                                 src={el?.userId?.profile || user}
                                 alt="user profile"
                               />
-                            </td>
+                            </td> */}
                             <td>{el?.userId?.username}</td>
                             <td
                               className={`${
                                 el?.amount?.toString()?.startsWith("-")
                                   ? "blockActive"
                                   : "userStatusActive"
-                              } `}
-                            >
-                              <div className="user-amountTransaction">
+                              } `}>
+                              <div className='user-amountTransaction'>
                                 {el?.amount?.toString()?.startsWith("-") ? (
                                   <>
                                     {el?.amount?.toFixed(2) * -1}
@@ -151,7 +148,7 @@ const Transaction = () => {
                                 )}
                               </div>
                             </td>
-                            <td className="transactionTypeTd">
+                            <td className='transactionTypeTd'>
                               {el?.transactionType}
                             </td>
                             <td>
@@ -167,31 +164,30 @@ const Transaction = () => {
                   ) : (
                     <span>No record Found</span>
                   )}
-                  <div className="adminPagination">
-                    <div className="transactionSelect ">
-                      <div className="selectContainer">
+                  <div className='adminPagination'>
+                    <div className='transactionSelect '>
+                      <div className='selectContainer'>
                         <select
-                          className="form-control"
-                          aria-label="Default select example"
+                          className='form-control'
+                          aria-label='Default select example'
                           onChange={(e) => handlePagination(e.target.value)}
-                          defaultValue={pageLimit}
-                        >
+                          defaultValue={pageLimit}>
                           <option>Select Page</option>
-                          <option value="10">10</option>
-                          <option value="20">20</option>
-                          <option value="30">30</option>
-                          <option value="50">50</option>
-                          <option value="100">100</option>
+                          <option value='10'>10</option>
+                          <option value='20'>20</option>
+                          <option value='30'>30</option>
+                          <option value='50'>50</option>
+                          <option value='100'>100</option>
                         </select>
                       </div>
                     </div>
                     <ReactPaginate
-                      breakLabel="..."
-                      nextLabel="next >"
+                      breakLabel='...'
+                      nextLabel='next >'
                       onPageChange={handlePageClick}
                       pageRangeDisplayed={5}
                       pageCount={pageCount}
-                      previousLabel="< previous"
+                      previousLabel='< previous'
                       renderOnZeroPageCount={null}
                     />
                   </div>

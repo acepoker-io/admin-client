@@ -13,13 +13,28 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const OpenTable = ({ allRooms, setKeyword, getAllPokerTable }) => {
+  // const gameInit = {
+  //   gameName: "",
+  //   public: true,
+  //   minchips: "",
+  //   maxchips: "",
+  //   autohand: false,
+  //   // sitInAmount: "",
+  //   // invitedUsers: [],
+  // };
   const [show, setShow] = useState(false);
   const [deletePopup, setDelatePopup] = useState(false);
   const [deleteId, setDeleteId] = useState("");
   const [showSpinner, setShowSpinner] = useState("");
+  // const [createTableVlaues, setCreateTableVlaues] = useState({ ...gameInit });
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true);
+  };
+
+  useState(() => {});
+
   const handleDeleteTable = (room) => {
     setDeleteId(room._id);
     setDelatePopup(!deletePopup);
@@ -58,58 +73,57 @@ const OpenTable = ({ allRooms, setKeyword, getAllPokerTable }) => {
   };
 
   return (
-    <div className="OpenTable">
-      <div className="openTable-header">
+    <div className='OpenTable'>
+      <div className='openTable-header'>
         <h4> All Poker Tables</h4>
-        <FormGroup className="searchFromgroup">
+        <FormGroup className='searchFromgroup'>
           <Input
-            type="text"
-            name="search"
-            id="exampleEmail"
-            placeholder="Search here..."
-            className="searchFromInput"
+            type='text'
+            name='search'
+            id='exampleEmail'
+            placeholder='Search here...'
+            className='searchFromInput'
             onChange={(e) => {
               setKeyword(e.target.value);
             }}
           />
-          <FaSearch className="searchlens" />
+          <FaSearch className='searchlens' />
         </FormGroup>
-        <Button className="yellowBtn" onClick={handleShow}>
+        <Button className='yellowBtn' onClick={handleShow}>
           Create Table
         </Button>
       </div>
-      <div className="opentable-body">
+      <div className='opentable-body'>
         {allRooms?.length === 0 ? (
-          <div className="noCardtable">
+          <div className='noCardtable'>
             <h3>No Tables</h3>
             <h4>Create a table to play</h4>
           </div>
         ) : null}
 
-        <div className="tableCards">
+        <div className='tableCards'>
           {allRooms?.map((room) => (
-            <div className="tablecard">
-              <div className="cardImgContainer">
-                <img src={game1} alt="game" />
+            <div className='tablecard'>
+              <div className='cardImgContainer'>
+                <img src={game1} alt='game' />
                 <span
-                  className="trashTable"
-                  onClick={() => handleDeleteTable(room)}
-                >
+                  className='trashTable'
+                  onClick={() => handleDeleteTable(room)}>
                   <Trash />
                 </span>
               </div>
-              <div className="cardDetail">
+              <div className='cardDetail'>
                 <h5>{room.gameName}</h5>
-                <div className="cardTableUsers">
-                  <div className="allUsersImg">
+                <div className='cardTableUsers'>
+                  <div className='allUsersImg'>
                     {room?.players?.map((player) => (
                       <img
                         src={player.photoURI ? player.photoURI : user}
-                        alt="game"
+                        alt='game'
                       />
                     ))}
                   </div>
-                  <div className="allUsersCount">
+                  <div className='allUsersCount'>
                     {room?.players?.length} People
                   </div>
                 </div>
@@ -141,21 +155,20 @@ export default OpenTable;
 const Trash = () => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="feather feather-trash-2"
-    >
-      <polyline points="3 6 5 6 21 6"></polyline>
-      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-      <line x1="10" y1="11" x2="10" y2="17"></line>
-      <line x1="14" y1="11" x2="14" y2="17"></line>
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      stroke-width='2'
+      stroke-linecap='round'
+      stroke-linejoin='round'
+      class='feather feather-trash-2'>
+      <polyline points='3 6 5 6 21 6'></polyline>
+      <path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path>
+      <line x1='10' y1='11' x2='10' y2='17'></line>
+      <line x1='14' y1='11' x2='14' y2='17'></line>
     </svg>
   );
 };

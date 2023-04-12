@@ -23,7 +23,7 @@ import { adminAuthInstance, adminInstance } from "../../config/axios";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
-import user from "../../assets/images/user.png";
+// import user from "../../assets/images/user.png";
 import UserForm from "./userForm";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -117,59 +117,57 @@ const UserList = () => {
 
   const handlePagination = async (value) => {
     setPageLimit(value);
-    setSkip(0)
+    setSkip(0);
   };
   return (
     <>
       {loader && <Loader />}
-      <div className="userlist-page">
-        <Breadcrumb title="User-list" parent="User" />
+      <div className='userlist-page'>
+        <Breadcrumb title='User-list' parent='User' />
 
         <Container fluid={true}>
           <Row>
-            <Col sm="12">
+            <Col sm='12'>
               <Card>
                 <CardHeader>
                   <h5>All Users</h5>
-                  <FormGroup className="searchFromgroup">
+                  <FormGroup className='searchFromgroup'>
                     <Input
-                      type="text"
-                      name="search"
-                      id="exampleEmail"
-                      placeholder="Search here..."
-                      className="searchFromInput"
+                      type='text'
+                      name='search'
+                      id='exampleEmail'
+                      placeholder='Search here...'
+                      className='searchFromInput'
                       onChange={(e) => {
                         setKeyword(e.target.value);
                         setSkip(0);
                       }}
                     />
-                    <FaSearch className="searchlens" />
+                    <FaSearch className='searchlens' />
                   </FormGroup>
                 </CardHeader>
-                <CardBody className="user-datatable">
+                <CardBody className='user-datatable'>
                   <Table responsive>
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Avatar</th>
+                        {/* <th>Avatar</th>
                         <th>First Name</th>
-                        <th>Email</th>
+                        <th>Email</th> */}
                         <th>Username</th>
-                        <th>Phone</th>
+                        {/* <th>Phone</th> */}
                         <th>Tokens</th>
                         <th>Status</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-
                       {allUsers &&
                         allUsers?.length > 0 &&
                         allUsers.map((el, i) => (
                           <tr key={el.id + i}>
-
-                            <th scope="row">{num + i}</th>
-                            <td className="latest-user-image">
+                            <th scope='row'>{num + i}</th>
+                            {/* <td className="latest-user-image">
                               <img
                                 src={el?.profile || user}
                                 alt="user profile"
@@ -182,19 +180,18 @@ const UserList = () => {
                             <td className="firstnameUserList">
                               {el.firstName}
                             </td>
-                            <td>{el.email}</td>
+                            <td>{el.email}</td> */}
                             <td>{el.username}</td>
-                            <td>{el.phone}</td>
+                            {/* <td>{el.phone}</td> */}
                             {/* <td className="pending">Pending</td> */}
                             <td>{numFormatter(el.wallet)}</td>
                             <td
                               className={
                                 el.isBlock ? "blockActive" : "userStatusActive"
-                              }
-                            >
+                              }>
                               {el.isBlock ? "Block" : "Active"}
                             </td>
-                            <td className="actionDropdown">
+                            <td className='actionDropdown'>
                               <ActionDropdown
                                 handleShowUserInfo={() =>
                                   handleShowUserInfo(el)
@@ -213,31 +210,30 @@ const UserList = () => {
                       <br />
                     </tbody>
                   </Table>
-                  <div className="adminPagination">
-                    <div className="transactionSelect ">
-                      <div className="selectContainer">
+                  <div className='adminPagination'>
+                    <div className='transactionSelect '>
+                      <div className='selectContainer'>
                         <select
-                          className="form-control"
-                          aria-label="Default select example"
+                          className='form-control'
+                          aria-label='Default select example'
                           onChange={(e) => handlePagination(e.target.value)}
-                          defaultValue={pageLimit}
-                        >
+                          defaultValue={pageLimit}>
                           <option>Select Page</option>
-                          <option value="10">10</option>
-                          <option value="20">20</option>
-                          <option value="30">30</option>
-                          <option value="50">50</option>
-                          <option value="100">100</option>
+                          <option value='10'>10</option>
+                          <option value='20'>20</option>
+                          <option value='30'>30</option>
+                          <option value='50'>50</option>
+                          <option value='100'>100</option>
                         </select>
                       </div>
                     </div>
                     <ReactPaginate
-                      breakLabel="..."
-                      nextLabel="next >"
+                      breakLabel='...'
+                      nextLabel='next >'
                       onPageChange={handlePageClick}
                       pageRangeDisplayed={5}
                       pageCount={pageCount}
-                      previousLabel="< previous"
+                      previousLabel='< previous'
                       renderOnZeroPageCount={null}
                     />
                   </div>
@@ -249,11 +245,10 @@ const UserList = () => {
         {/*********** user info popup  **********/}
 
         <Modal
-          className="userInfoModal"
+          className='userInfoModal'
           centered
           show={showInfo}
-          onHide={handleShowUserInfo}
-        >
+          onHide={handleShowUserInfo}>
           <Modal.Header closeButton>
             <Modal.Title>User Info</Modal.Title>
           </Modal.Header>
@@ -272,24 +267,23 @@ const UserList = () => {
         {/*********** user Block popup  **********/}
 
         <Modal
-          className="userBlockModal"
+          className='userBlockModal'
           centered
           show={showBlock}
-          onHide={handleShowUserBlock}
-        >
+          onHide={handleShowUserBlock}>
           <Modal.Header closeButton>
             <Modal.Title>
               {userDetail?.isBlock ? "Active User" : "Block User"}
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div className="opentableModal">
+            <div className='opentableModal'>
               <h4>
                 Are you sure, you want to{" "}
                 {userDetail?.isBlock ? (
-                  <span className="text-green"> Active</span>
+                  <span className='text-green'> Active</span>
                 ) : (
-                  <span className="text-danger"> Block</span>
+                  <span className='text-danger'> Block</span>
                 )}{" "}
                 the <span>@{userDetail?.username}</span> ?
               </h4>
@@ -297,14 +291,13 @@ const UserList = () => {
           </Modal.Body>
           <Modal.Footer>
             <button
-              className="yellowBtn"
-              color="primary"
-              type="button"
-              onClick={() => handleBlockUser()}
-            >
-              {!spinLoader ? "Yes" : <Spinner animation="border" />}
+              className='yellowBtn'
+              color='primary'
+              type='button'
+              onClick={() => handleBlockUser()}>
+              {!spinLoader ? "Yes" : <Spinner animation='border' />}
             </button>
-            <button className="darkBtn" onClick={() => setShowBlock(false)}>
+            <button className='darkBtn' onClick={() => setShowBlock(false)}>
               No
             </button>
           </Modal.Footer>
@@ -368,17 +361,16 @@ const UpdateUserWallet = ({
   return (
     <>
       <Modal
-        className="userWalletModal"
+        className='userWalletModal'
         centered
         show={showWallet}
-        onHide={handleShowUpdateWallet}
-      >
+        onHide={handleShowUpdateWallet}>
         <Form onSubmit={handleSubmit(handleUpdateWallet)}>
           <Modal.Header closeButton>
             <Modal.Title>Update User Wallet</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div className="opentableModal">
+            <div className='opentableModal'>
               <Form.Group>
                 <Form.Label>
                   <h4>Username : </h4>
@@ -396,27 +388,27 @@ const UpdateUserWallet = ({
                   <h4>Enter Tokens</h4>
                 </Form.Label>
                 <Form.Control
-                  type="number"
-                  placeholder="Wallet"
-                  name="wallet"
+                  type='number'
+                  placeholder='Wallet'
+                  name='wallet'
                   onChange={(e) => setValue("wallet", e.target.value)}
                 />
                 {errors.wallet && (
-                  <p className="error-msg">{errors.wallet.message}</p>
+                  <p className='error-msg'>{errors.wallet.message}</p>
                 )}
               </Form.Group>
             </div>
           </Modal.Body>
           <Modal.Footer>
             <button
-              className="yellowBtn"
-              color="primary"
-              type="submit"
-            // onClick={() => routeChange()}
+              className='yellowBtn'
+              color='primary'
+              type='submit'
+              // onClick={() => routeChange()}
             >
-              {!spinLoader ? "Update" : <Spinner animation="border" />}
+              {!spinLoader ? "Update" : <Spinner animation='border' />}
             </button>
-            <button className="darkBtn">Cancel</button>
+            <button className='darkBtn'>Cancel</button>
           </Modal.Footer>
         </Form>
       </Modal>
