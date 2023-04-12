@@ -12,13 +12,13 @@ const ActionDropdown = ({
 }) => {
   return (
     <>
-      <div className="threedotDiv">
+      <div className='threedotDiv'>
         {type === "tournament" ? (
           <Dropdown>
-            <Dropdown.Toggle id="dropdown-basic">
+            <Dropdown.Toggle id='dropdown-basic'>
               <FaEllipsisV />
             </Dropdown.Toggle>
-            <Dropdown.Menu className="userdropdownAction">
+            <Dropdown.Menu className='userdropdownAction'>
               <Dropdown.Item onClick={handleShowUserInfo}>
                 <FaInfoCircle />
                 Update
@@ -30,13 +30,13 @@ const ActionDropdown = ({
           </Dropdown>
         ) : (
           <Dropdown>
-            <Dropdown.Toggle id="dropdown-basic">
+            <Dropdown.Toggle id='dropdown-basic'>
               <FaEllipsisV />
             </Dropdown.Toggle>
-            <Dropdown.Menu className="userdropdownAction">
-              <Dropdown.Item onClick={handleShowUserInfo}>
+            <Dropdown.Menu className='userdropdownAction'>
+              {/* <Dropdown.Item onClick={handleShowUserInfo}>
                 <FaInfoCircle /> View Profile
-              </Dropdown.Item>
+              </Dropdown.Item> */}
               <Dropdown.Item onClick={handleShowUserBlock}>
                 <FaBan /> {data?.isBlock ? "Active" : "Block"}
               </Dropdown.Item>
