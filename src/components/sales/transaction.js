@@ -18,7 +18,6 @@ import ReactPaginate from "react-paginate";
 import { adminAuthInstance } from "../../config/axios";
 import axios from "axios";
 import { toast } from "react-toastify";
-import user from "../../assets/images/user.png";
 import Loader from "../pageLoader/loader";
 let options = {
   weekday: "long",
