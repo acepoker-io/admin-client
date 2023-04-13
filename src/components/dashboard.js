@@ -231,21 +231,21 @@ const Dashboard = () => {
   return (
     <Fragment>
       {loader && <Loader />}
-      <Breadcrumb title="Dashboard" parent="Dashboard" />
+      <Breadcrumb title='Dashboard' parent='Dashboard' />
       <Container fluid={true}>
         <Row>
-          <Col xl="6 xl-50" md="6">
-            <Card className=" o-hidden widget-cards">
-              <CardBody className="bg-danger ">
-                <Media className="static-top-widget row">
-                  <div className="icons-widgets col-3">
-                    <div className="align-self-center text-center">
-                      <Users className="font-danger" />
+          <Col xl='6 xl-50' md='6'>
+            <Card className=' o-hidden widget-cards'>
+              <CardBody className='bg-danger '>
+                <Media className='static-top-widget row'>
+                  <div className='icons-widgets col-3'>
+                    <div className='align-self-center text-center'>
+                      <Users className='font-danger' />
                     </div>
                   </div>
-                  <Media body className="col-9">
-                    <span className="m-0">Total Users</span>
-                    <h3 className="mb-0">
+                  <Media body className='col-9'>
+                    <span className='m-0'>Total Users</span>
+                    <h3 className='mb-0'>
                       {allCount?.userCount || 0}
                       {/* <small> This Month</small> */}
                     </h3>
@@ -254,18 +254,18 @@ const Dashboard = () => {
               </CardBody>
             </Card>
           </Col>
-          <Col xl="6 xl-50" md="6">
-            <Card className="o-hidden widget-cards">
-              <CardBody className="bg-primary">
-                <Media className="static-top-widget row">
-                  <div className="icons-widgets col-3">
-                    <div className="align-self-center text-center">
-                      <MessageSquare className="font-primary" />
+          <Col xl='6 xl-50' md='6'>
+            <Card className='o-hidden widget-cards'>
+              <CardBody className='bg-primary'>
+                <Media className='static-top-widget row'>
+                  <div className='icons-widgets col-3'>
+                    <div className='align-self-center text-center'>
+                      <MessageSquare className='font-primary' />
                     </div>
                   </div>
-                  <Media body className="col-9">
-                    <span className="m-0">Number of Transaction</span>
-                    <h3 className="mb-0">
+                  <Media body className='col-9'>
+                    <span className='m-0'>Number of Transaction</span>
+                    <h3 className='mb-0'>
                       {allCount?.transactionCount || 0}
                       {/* <small> This Month</small> */}
                     </h3>
@@ -296,13 +296,13 @@ const Dashboard = () => {
               </CardBody>
             </Card>
           </Col> */}
-          <Col xl="6 xl-100">
+          <Col xl='6 xl-100'>
             <Card>
               <CardHeader>
                 <h5>Market Value</h5>
               </CardHeader>
-              <CardBody className="marketValueCard">
-                <div className="market-chart">
+              <CardBody className='marketValueCard'>
+                <div className='market-chart'>
                   <Bar
                     data={lineData}
                     options={lineOptions}
@@ -313,25 +313,25 @@ const Dashboard = () => {
               </CardBody>
             </Card>
           </Col>
-          <Col xl="6 xl-100">
-            <Card className="dashboardViewAllCard">
-              <CardHeader className="dashboardViewAll">
+          <Col xl='6 xl-100'>
+            <Card className='dashboardViewAllCard'>
+              <CardHeader className='dashboardViewAll'>
                 <h5>Latest Users</h5>
-                <Link to="/User/user-list" className="btn btn-primary">
+                <Link to='/User/user-list' className='btn btn-primary'>
                   View All Users
                 </Link>
               </CardHeader>
               <CardBody>
-                <div className="user-status table-responsive latest-order-table">
+                <div className='user-status table-responsive latest-order-table'>
                   <Table borderless>
                     <thead>
                       <tr>
-                        <th scope="col">SR No</th>
-                        <th scope="col">Avatar</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Tokens</th>
+                        <th scope='col'>SR No</th>
+                        {/* <th scope="col">Avatar</th> */}
+                        <th scope='col'>Username</th>
+                        {/* <th scope="col">Email</th>
+                        <th scope="col">Phone</th> */}
+                        <th scope='col'>Tokens</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -340,20 +340,20 @@ const Dashboard = () => {
                         allUsers.map((el, i) => (
                           <tr>
                             <td>{num + i}</td>
-                            <td className="latest-user-image">
+                            {/* <td className='latest-user-image'>
                               <img
                                 src={el?.profile || user}
-                                alt="user profile"
+                                alt='user profile'
                                 onError={(e) => {
                                   e.target.onerror = null;
                                   e.target.src = user;
                                 }}
                               />
-                            </td>
-                            <td className="font-danger">{el?.username}</td>
-                            <td className="digits">{el?.email}</td>
-                            <td className="font-danger">{el?.phone}</td>
-                            <td className="digits">
+                            </td> */}
+                            <td className='font-danger'>{el?.username}</td>
+                            {/* <td className='digits'>{el?.email}</td>
+                            <td className='font-danger'>{el?.phone}</td> */}
+                            <td className='digits'>
                               {numFormatter(el?.wallet)}
                             </td>
                           </tr>
