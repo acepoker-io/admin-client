@@ -169,7 +169,7 @@ input:hover {
 .btn-primary.active {
   background-color: #dc3545 !important;
   border-color: #dc3545 !important;
-  color: rgb(255, 255, 255) !important;
+  color: rgb(0, 0, 0) !important;
 }
 
 a.btn.btn-primary:focus-visible {
@@ -260,7 +260,7 @@ a.btn.btn-primary:focus-visible {
 }
 
 .transactionSelect .selectContainer {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   width: 180px;
   padding: 0px 10px;
   border-radius: 6px;
