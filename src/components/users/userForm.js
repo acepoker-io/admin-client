@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 //     FaEdit,
 //     FaCamera,
 //   } from "react-icons/fa";
-import PhoneInput from "react-phone-input-2";
+// import PhoneInput from "react-phone-input-2";
 import { toast } from "react-toastify";
 import { Button, Form, FormGroup, Input, Label, Spinner } from "reactstrap";
 import dummy from "../../assets/images/game/dummy.png";
@@ -20,15 +20,15 @@ const UserForm = ({ userDetail, getAllUser, setShowInfo }) => {
   } = useForm({
     resolver: yupResolver(updateSchema),
     defaultValues: {
-      firstName: userDetail?.firstName || "",
-      lastName: userDetail?.lastName || "",
+      // firstName: userDetail?.firstName || "",
+      // lastName: userDetail?.lastName || "",
       username: userDetail?.username || "",
-      email: userDetail?.email || "",
-      phone: userDetail?.phone || "",
+      // email: userDetail?.email || "",
+      // phone: userDetail?.phone || "",
     },
   });
   const [spinLoader, setSpinLoader] = useState(false);
-  const [phone, setPhone] = useState("");
+  //const [phone, setPhone] = useState("");
   const updateUserDetail = async (values) => {
     try {
       console.log("update user detail ", values);
@@ -38,8 +38,8 @@ const UserForm = ({ userDetail, getAllUser, setShowInfo }) => {
         {
           ...values,
           existUsername: userDetail?.username,
-          existEmail: userDetail?.email,
-          existPhone: userDetail?.phone,
+          // existEmail: userDetail?.email,
+          // existPhone: userDetail?.phone,
         }
       );
       setSpinLoader(false);
@@ -74,11 +74,9 @@ const UserForm = ({ userDetail, getAllUser, setShowInfo }) => {
           </div>
         </div>
         <Form onSubmit={handleSubmit(updateUserDetail)}>
-          <FormGroup>
+          {/* <FormGroup>
             <Label>
               <h4>First name</h4>
-              {/* <p>John Smith</p> */}
-              {/* <FaEdit /> */}
             </Label>
             <Input
               type='text'
@@ -90,13 +88,11 @@ const UserForm = ({ userDetail, getAllUser, setShowInfo }) => {
             {errors.firstName && (
               <p className='error-msg'>{errors.firstName.message}</p>
             )}
-          </FormGroup>
+          </FormGroup> */}
 
-          <FormGroup>
+          {/* <FormGroup>
             <Label>
               <h4>Last name</h4>
-              {/* <p>John Smith</p> */}
-              {/* <FaEdit /> */}
             </Label>
             <Input
               type='text'
@@ -108,29 +104,34 @@ const UserForm = ({ userDetail, getAllUser, setShowInfo }) => {
             {errors.lastName && (
               <p className='error-msg'>{errors.lastName.message}</p>
             )}
-          </FormGroup>
+          </FormGroup> */}
           <FormGroup>
             <Label>
               <h4>Username</h4>
-              {/* <p>John Smith</p> */}
-              {/* <FaEdit /> */}
+              
             </Label>
             <Input
               type='text'
               name='username'
-              defaultValue={userDetail?.username}
+              defaultValue={userDetail?.username || ""}
+              autoComplete="off"
               placeholder='Username'
               onChange={(e) => setValue("username", e.target.value)}
+              onFocus={(e) => {
+                if (e.target.hasAttribute('readonly')) {
+                  e.target.removeAttribute('readonly');
+                  // fix for mobile safari to show virtual keyboard
+                  e.target.blur(); e.target.focus();
+                }
+              }}
             />
             {errors.username && (
               <p className='error-msg'>{errors.username.message}</p>
             )}
           </FormGroup>
-          <FormGroup>
+          {/* <FormGroup>
             <Label>
               <h4>Email</h4>
-              {/* <p>johnSmith@example</p> */}
-              {/* <FaEdit /> */}
             </Label>
             <Input
               type='email'
@@ -142,8 +143,8 @@ const UserForm = ({ userDetail, getAllUser, setShowInfo }) => {
             {errors.email && (
               <p className='error-msg'>{errors.email.message}</p>
             )}
-          </FormGroup>
-          <FormGroup>
+          </FormGroup> */}
+          {/* <FormGroup>
             <Label>
               <h4>Phone</h4>
             </Label>
@@ -165,7 +166,7 @@ const UserForm = ({ userDetail, getAllUser, setShowInfo }) => {
             ) : (
               ""
             )}
-          </FormGroup>
+          </FormGroup> */}
           <Button
             className='loginPageBtn userInfoPopupBtn'
             color='primary'

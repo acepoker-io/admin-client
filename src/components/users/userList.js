@@ -12,6 +12,7 @@ import {
   Table,
   Input,
   FormGroup,
+  Button,
 } from "reactstrap";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
@@ -30,6 +31,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { updateWalletSchema } from "../../utils/validationSchema";
 import Loader from "../pageLoader/loader";
 import numFormatter from "../../utils/utils";
+import AddUserForm from "./Add_user_Form";
 
 const UserList = () => {
   let num = 1;
@@ -45,7 +47,10 @@ const UserList = () => {
   const [pageLimit, setPageLimit] = useState(10);
   const [keyword, setKeyword] = useState("");
   const [loader, setLoader] = useState(true);
-
+  const [showUser,setShowUser]=useState(false)
+  const [showAddUser,setShowAddUser]=useState(false)
+  const [deleteId,setDeleteId]=useState('')
+  const [showDelete,setShowDelete]=useState(false)
   // const pageLimit = 10
   const handleShowUserInfo = (user) => {
     setShowInfo(!showInfo);
@@ -59,6 +64,25 @@ const UserList = () => {
     setShowWallet(!showWallet);
     setUserDetail(user);
   };
+  const handleUpdateUser = (user) => {
+    setShowUser(!showUser);
+    setUserDetail(user);
+  };
+  const handleCloseUser = (user) => {
+    setShowAddUser(!showAddUser);
+  };
+  const handleAddUser=()=>{
+    setShowAddUser(!showAddUser);
+    setUserDetail({});
+  }
+  const handleDeleteUser=(el)=>{
+    setShowDelete(!showDelete);
+    setDeleteId(el._id);
+  }
+  // const handleAddUser=()=>{
+  //   setShowAddUser(!showAddUser);
+  //   setUserDetail({});
+  // }
   useEffect(() => {
     setPageCount(Math.ceil(userCount / pageLimit));
   }, [userCount, pageLimit]);
@@ -114,6 +138,33 @@ const UserList = () => {
       }
     }
   };
+  const deleteUser = async () => {
+    try {
+      setSpinLoader(true);
+      const response = await adminInstance().put(
+        `/delete-user/${deleteId}`
+      );
+      setSpinLoader(false);
+      const {
+        data: {
+           status ,
+        },
+      } = response;
+      if (status === 200) {
+        getAllUser();
+        setShowBlock(false);
+        toast.success(`User delete successfully`);
+      }
+      setLoader(false);
+    } catch (e) {
+      setSpinLoader(false);
+      if (axios.isAxiosError(e) && e.response) {
+        if (e.response.status !== 200) {
+          toast.error(e?.response?.data?.message, { toastId: "login" });
+        }
+      }
+    }
+  };
 
   const handlePagination = async (value) => {
     setPageLimit(value);
@@ -145,6 +196,7 @@ const UserList = () => {
                     />
                     <FaSearch className='searchlens' />
                   </FormGroup>
+                  <Button onClick={handleAddUser}>Add User</Button>
                 </CardHeader>
                 <CardBody className='user-datatable'>
                   <Table responsive>
@@ -202,6 +254,12 @@ const UserList = () => {
                                 handleShowUpdateWallet={() =>
                                   handleShowUpdateWallet(el)
                                 }
+                                handleUpdateUser={() =>
+                                  handleUpdateUser(el)
+                                }
+                                handleDeleteUser={() =>
+                                  handleDeleteUser(el)
+                                }
                                 data={el}
                               />
                             </td>
@@ -247,8 +305,8 @@ const UserList = () => {
         <Modal
           className='userInfoModal'
           centered
-          show={showInfo}
-          onHide={handleShowUserInfo}>
+          show={showUser}
+          onHide={handleUpdateUser}>
           <Modal.Header closeButton>
             <Modal.Title>User Info</Modal.Title>
           </Modal.Header>
@@ -256,7 +314,25 @@ const UserList = () => {
             <UserForm
               userDetail={userDetail}
               getAllUser={getAllUser}
-              setShowInfo={setShowInfo}
+              setShowInfo={setShowUser}
+            />
+          </Modal.Body>
+          {/* <Modal.Footer>
+          
+        </Modal.Footer> */}
+        </Modal>
+        <Modal
+          className='userInfoModal'
+          centered
+          show={showAddUser}
+          onHide={handleCloseUser}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add New User</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <AddUserForm 
+            getAllUser={getAllUser}
+              setShowInfo={setShowAddUser}
             />
           </Modal.Body>
           {/* <Modal.Footer>
@@ -298,6 +374,38 @@ const UserList = () => {
               {!spinLoader ? "Yes" : <Spinner animation='border' />}
             </button>
             <button className='darkBtn' onClick={() => setShowBlock(false)}>
+              No
+            </button>
+          </Modal.Footer>
+        </Modal>
+         {/*********** user delet popup  **********/}
+
+         <Modal
+          className='userBlockModal'
+          centered
+          show={showDelete}
+          onHide={handleDeleteUser}>
+          {/* <Modal.Header closeButton>
+            <Modal.Title>
+              {userDetail?.isBlock ? "Active User" : "Block User"}
+            </Modal.Title>
+          </Modal.Header> */}
+          <Modal.Body>
+            <div className='opentableModal'>
+              <h4>
+                Are you sure, you want to delete
+              </h4>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <button
+              className='yellowBtn'
+              color='primary'
+              type='button'
+              onClick={() => deleteUser()}>
+              {!spinLoader ? "Yes" : <Spinner animation='border' />}
+            </button>
+            <button className='darkBtn' onClick={() => setShowDelete(false)}>
               No
             </button>
           </Modal.Footer>
