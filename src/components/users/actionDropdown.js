@@ -33,7 +33,7 @@ const ActionDropdown = ({
             <Dropdown.Toggle id='dropdown-basic'>
               <FaEllipsisV />
             </Dropdown.Toggle>
-            <Dropdown.Menu className='userdropdownAction'>
+            <Dropdown.Menu align="start" className='userdropdownAction'>
               {/* <Dropdown.Item onClick={handleShowUserInfo}>
                 <FaInfoCircle /> View Profile
               </Dropdown.Item> */}
