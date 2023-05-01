@@ -46,7 +46,6 @@ const Root = () => {
       if (data.user) {
         setAdmin(data.user);
       }
-      console.log("userrrrrrr ===>", data.user);
       // setLoaderPage(false);
     } catch (error) {
       // setLoaderPage(false);

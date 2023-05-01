@@ -7,6 +7,8 @@ const ActionDropdown = ({
   handleShowUserInfo,
   handleShowUserBlock,
   handleShowUpdateWallet,
+  handleUpdateUser,
+  handleDeleteUser,
   data,
   type,
 }) => {
@@ -42,6 +44,12 @@ const ActionDropdown = ({
               </Dropdown.Item>
               <Dropdown.Item onClick={handleShowUpdateWallet}>
                 <FaWallet /> Update user wallet
+              </Dropdown.Item>
+              <Dropdown.Item onClick={handleUpdateUser}>
+                <FaWallet /> Update user
+              </Dropdown.Item>
+              <Dropdown.Item onClick={handleDeleteUser}>
+                <FaWallet /> delete user
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
