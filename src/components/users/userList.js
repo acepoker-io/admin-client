@@ -77,7 +77,7 @@ const UserList = () => {
   }
   const handleDeleteUser=(el)=>{
     setShowDelete(!showDelete);
-    setDeleteId(el._id);
+    setDeleteId(el.id);
   }
   // const handleAddUser=()=>{
   //   setShowAddUser(!showAddUser);
