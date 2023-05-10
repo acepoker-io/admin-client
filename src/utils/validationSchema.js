@@ -13,14 +13,14 @@ export const RegisterSchema = yup.object().shape({
   password: yup.string().required("Phone number is required"),
 });
 export const updateSchema = yup.object().shape({
-  firstName: yup.string().required("First Name is required"),
-  lastName: yup.string().required("Last Name is required"),
+  // firstName: yup.string().required("First Name is required"),
+  // lastName: yup.string().required("Last Name is required"),
   username: yup.string().required("Username is required"),
-  email: yup
-    .string()
-    .email("Please enter valid email")
-    .required("Email is required"),
-  phone: yup.string().required("Phone number is required"),
+  // email: yup
+  //   .string()
+  //   .email("Please enter valid email")
+  //   .required("Email is required"),
+  // phone: yup.string().required("Phone number is required"),
 });
 export const updateWalletSchema = yup.object().shape({
   wallet: yup.string().required("Amount is required"),
