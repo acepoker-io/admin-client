@@ -9,7 +9,7 @@ const Footer = () => {
           <Row>
             <Col md='12' className='footer-copyright'>
               <p className='mb-0'>
-                Copyright 2023 © WPT Poker - All rights reserved.
+                Copyright 2023 © ACE Poker - All rights reserved.
               </p>
             </Col>
           </Row>
