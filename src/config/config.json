@@ -4,18 +4,18 @@
     "admin": "http://localhost:3000"
   },
   "development": {
-    "server": "https://api.acepoker.io/",
-    "admin": "https://admin.acepoker.io/",
-    "client": "https://app.acepoker.io/"
+    "server": "https://api.acepoker.io",
+    "admin": "https://admin.acepoker.io",
+    "client": "https://app.acepoker.io"
   },
   "production": {
-    "server": "https://api.acepoker.io/",
-    "admin": "https://admin.acepoker.io/",
-    "client": "https://app.acepoker.io/"
+    "server": "https://api.acepoker.io",
+    "admin": "https://admin.acepoker.io",
+    "client": "https://app.acepoker.io"
   },
   "staging": {
-    "server": "https://api.acepoker.io/",
-    "admin": "https://admin.acepoker.io/",
-    "client": "https://app.acepoker.io/"
+    "server": "https://api.acepoker.io",
+    "admin": "https://admin.acepoker.io",
+    "client": "https://app.acepoker.io"
   }
 }
