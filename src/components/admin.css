@@ -231,7 +231,7 @@ input.form-control.form-control:focus {
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
 .show>.btn-primary.dropdown-toggle {
-  color: #000 !important;
+  color: #ffffff !important;
 }
 
 .page-wrapper.login-page .form-button {

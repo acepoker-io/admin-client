@@ -169,7 +169,7 @@ input:hover {
 .btn-primary.active {
   background-color: #dc3545 !important;
   border-color: #dc3545 !important;
-  color: rgb(0, 0, 0) !important;
+  color: rgb(255, 255, 255) !important;
 }
 
 a.btn.btn-primary:focus-visible {
@@ -1015,8 +1015,9 @@ p.error-msg {
 .btn-secondary:hover,
 .btn-secondary:active,
 .btn-secondary:focus {
-  background-color: #495057 !important;
-  border-color: #495057 !important;
+  background-color: grey !important;
+  border-color: grey  !important;
+  color: #ffffff !important;
 }
 
 .page-main-header .main-header-right .nav-right>ul>li:first-child {

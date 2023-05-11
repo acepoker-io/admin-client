@@ -1,21 +1,26 @@
 {
   "local": {
     "server": "http://localhost:3004",
-    "admin": "http://localhost:3000"
+    "admin": "http://localhost:3000",
+    "client": "https://app.acepoker.io",
+    "landingUrl": "https://acepoker.io"
   },
   "development": {
     "server": "https://api.acepoker.io",
     "admin": "https://admin.acepoker.io",
-    "client": "https://app.acepoker.io"
+    "client": "https://app.acepoker.io",
+    "landingUrl": "https://acepoker.io"
   },
   "production": {
     "server": "https://api.acepoker.io",
     "admin": "https://admin.acepoker.io",
-    "client": "https://app.acepoker.io"
+    "client": "https://app.acepoker.io",
+    "landingUrl": "https://acepoker.io"
   },
   "staging": {
     "server": "https://api.acepoker.io",
     "admin": "https://admin.acepoker.io",
-    "client": "https://app.acepoker.io"
+    "client": "https://app.acepoker.io",
+    "landingUrl": "https://acepoker.io"
   }
 }
