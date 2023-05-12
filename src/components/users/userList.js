@@ -141,7 +141,7 @@ const UserList = () => {
   const deleteUser = async () => {
     try {
       setSpinLoader(true);
-      const response = await adminInstance().put(
+      const response = await adminInstance().delete(
         `/delete-user/${deleteId}`
       );
       setSpinLoader(false);
