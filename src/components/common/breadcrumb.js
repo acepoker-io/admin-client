@@ -12,7 +12,7 @@ const Breadcrumb = ({ title, parent }) => {
             <div className='page-header-left'>
               <h3>
                 {title}
-                <small>WPT Poker</small>
+                <small>ACE Poker</small>
               </h3>
             </div>
           </Col>
