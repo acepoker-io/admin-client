@@ -47,10 +47,10 @@ const UserList = () => {
   const [pageLimit, setPageLimit] = useState(10);
   const [keyword, setKeyword] = useState("");
   const [loader, setLoader] = useState(true);
-  const [showUser,setShowUser]=useState(false)
-  const [showAddUser,setShowAddUser]=useState(false)
-  const [deleteId,setDeleteId]=useState('')
-  const [showDelete,setShowDelete]=useState(false)
+  const [showUser, setShowUser] = useState(false);
+  const [showAddUser, setShowAddUser] = useState(false);
+  const [deleteId, setDeleteId] = useState("");
+  const [showDelete, setShowDelete] = useState(false);
   // const pageLimit = 10
   const handleShowUserInfo = (user) => {
     setShowInfo(!showInfo);
@@ -71,14 +71,14 @@ const UserList = () => {
   const handleCloseUser = (user) => {
     setShowAddUser(!showAddUser);
   };
-  const handleAddUser=()=>{
+  const handleAddUser = () => {
     setShowAddUser(!showAddUser);
     setUserDetail({});
-  }
-  const handleDeleteUser=(el)=>{
+  };
+  const handleDeleteUser = (el) => {
     setShowDelete(!showDelete);
     setDeleteId(el.id);
-  }
+  };
   // const handleAddUser=()=>{
   //   setShowAddUser(!showAddUser);
   //   setUserDetail({});
@@ -141,18 +141,13 @@ const UserList = () => {
   const deleteUser = async () => {
     try {
       setSpinLoader(true);
-      const response = await adminInstance().delete(
-        `/delete-user/${deleteId}`
-      );
+      const response = await adminInstance().delete(`/delete-user/${deleteId}`);
+      console.log("response ===>", response);
       setSpinLoader(false);
-      const {
-        data: {
-           status ,
-        },
-      } = response;
+      const { status } = response;
       if (status === 200) {
         getAllUser();
-        setShowBlock(false);
+        setShowDelete(false);
         toast.success(`User delete successfully`);
       }
       setLoader(false);
@@ -254,12 +249,8 @@ const UserList = () => {
                                 handleShowUpdateWallet={() =>
                                   handleShowUpdateWallet(el)
                                 }
-                                handleUpdateUser={() =>
-                                  handleUpdateUser(el)
-                                }
-                                handleDeleteUser={() =>
-                                  handleDeleteUser(el)
-                                }
+                                handleUpdateUser={() => handleUpdateUser(el)}
+                                handleDeleteUser={() => handleDeleteUser(el)}
                                 data={el}
                               />
                             </td>
@@ -330,10 +321,7 @@ const UserList = () => {
             <Modal.Title>Add New User</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <AddUserForm 
-            getAllUser={getAllUser}
-              setShowInfo={setShowAddUser}
-            />
+            <AddUserForm getAllUser={getAllUser} setShowInfo={setShowAddUser} />
           </Modal.Body>
           {/* <Modal.Footer>
           
@@ -378,9 +366,9 @@ const UserList = () => {
             </button>
           </Modal.Footer>
         </Modal>
-         {/*********** user delet popup  **********/}
+        {/*********** user delet popup  **********/}
 
-         <Modal
+        <Modal
           className='userBlockModal'
           centered
           show={showDelete}
@@ -392,9 +380,7 @@ const UserList = () => {
           </Modal.Header> */}
           <Modal.Body>
             <div className='opentableModal'>
-              <h4>
-                Are you sure, you want to delete
-              </h4>
+              <h4>Are you sure, you want to delete</h4>
             </div>
           </Modal.Body>
           <Modal.Footer>
