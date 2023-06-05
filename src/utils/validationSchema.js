@@ -29,20 +29,21 @@ export const tournamentSchema = yup.object().shape({
   name: yup.string().required("name is required"),
   smallBlind: yup.string().required("Small blind is required"),
   bigBlind: yup.string().required("Big blind is required"),
-  startDate: yup.string().required("Start date is required"),
+  // startDate: yup.string().required("Start date is required"),
   tournamentFees: yup.string().required("fees is required"),
   incBlindTime: yup.string().required("Blind increase time is required"),
-  joinTime: yup.string().required("Join time is required"),
+  // joinTime: yup.string().required("Join time is required"),
   buyIn: yup.string().required("Buy In is required"),
-  prizeType: yup.string().required("Prize Type is required"),
-  winTotalPlayer: yup.string().when("prizeType", {
-    is: "Fixed",
-    then: yup.string().required("Win total player is required"),
-  }),
-  prizeDistribution: yup.string().when("prizeType", {
-    is: "Percentage",
-    then: yup.string().required("Prize distribution is required"),
-  }),
+  // prizeType: yup.string().required("Prize Type is required"),
+  havePlayers: yup.string().required("Have player is required"),
+  // winTotalPlayer: yup.string().when("prizeType", {
+  //   is: "Fixed",
+  //   then: yup.string().required("Win total player is required"),
+  // }),
+  // prizeDistribution: yup.string().when("prizeType", {
+  //   is: "Percentage",
+  //   then: yup.string().required("Prize distribution is required"),
+  // }),
 });
 export const pokerTableSchema = yup.object().shape({
   gameName: yup.string().required("name is required"),

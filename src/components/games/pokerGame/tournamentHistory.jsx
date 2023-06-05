@@ -48,6 +48,8 @@ const TournamentHistory = () => {
     setSingleTournament();
     setShow(false);
   };
+
+
   const handleShow = (type) => {
     setShow(true);
     setModalName(type);
@@ -60,7 +62,7 @@ const TournamentHistory = () => {
       const response = await pokerTournamentInstance().get("/AllTournament", {
         params: { skip, limit: pageLimit },
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+          Authorization: `Bearer ${ localStorage.getItem("adminToken") }`,
         },
       });
       const {
@@ -81,6 +83,7 @@ const TournamentHistory = () => {
       }
     }
   };
+
   useEffect(() => {
     getAllTournament();
   }, [skip, pageLimit]);
@@ -110,7 +113,7 @@ const TournamentHistory = () => {
         {
           params: { tournamentId: deleteId },
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+            Authorization: `Bearer ${ localStorage.getItem("adminToken") }`,
           },
         }
       );
@@ -190,24 +193,24 @@ const TournamentHistory = () => {
                                   )?.toLocaleDateString("en-US", options)}
                                 </td>
                                 <td>
-                                  {new Date(
+                                  {el?.startTime ? new Date(
                                     el?.tournamentDate
-                                  )?.toLocaleTimeString()}
+                                  )?.toLocaleTimeString() : "Not Started"}
                                 </td>
                                 <td
                                   className={
                                     el.isStart
                                       ? "tournament-running"
                                       : el?.isFinished
-                                      ? "tournament-finish"
-                                      : "tournament-not-start"
+                                        ? "tournament-finish"
+                                        : "tournament-not-start"
                                   }
                                 >
                                   {el?.isStart
                                     ? "Active"
                                     : el?.isFinished
-                                    ? "Finished"
-                                    : "Not Active"}
+                                      ? "Finished"
+                                      : "Not Active"}
                                 </td>
                                 <td className="actionDropdown">
                                   <ActionDropdown
