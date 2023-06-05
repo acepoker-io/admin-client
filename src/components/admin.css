@@ -172,7 +172,12 @@ body {
   align-items: center;
 }
 
-.page-wrapper .page-body-wrapper .page-sidebar .sidebar-menu .sidebar-header .links {
+.page-wrapper
+  .page-body-wrapper
+  .page-sidebar
+  .sidebar-menu
+  .sidebar-header
+  .links {
   display: flex;
   align-items: center;
   color: #000;
@@ -230,7 +235,7 @@ input.form-control.form-control:focus {
 
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
-.show>.btn-primary.dropdown-toggle {
+.show > .btn-primary.dropdown-toggle {
   color: #ffffff !important;
 }
 
@@ -359,7 +364,7 @@ h5 {
   border-top: none !important;
 }
 
-.table tr:nth-of-type(even)>* {
+.table tr:nth-of-type(even) > * {
   background: #e9eaec;
 }
 
@@ -369,7 +374,7 @@ h5 {
 }
 
 .nav-tabs .nav-link {
-  color: #fff;
+  color: #000000;
 }
 
 .nav-tabs .nav-link.active,
@@ -659,7 +664,10 @@ svg.react-time-picker__clock-button__icon.react-time-picker__button__icon {
   align-items: flex-start;
 }
 
-.userBuy.form-group .form-control .react-datetime-picker__inputGroup__input .react-datetime-picker__inputGroup__year {
+.userBuy.form-group
+  .form-control
+  .react-datetime-picker__inputGroup__input
+  .react-datetime-picker__inputGroup__year {
   width: 30px !important;
 }
 
@@ -788,7 +796,6 @@ svg.react-datetime-picker__calendar-button__icon.react-datetime-picker__button__
 }
 
 @media screen and (max-width: 991px) {
-
   .user-datatable .table th,
   .user-datatable .table td {
     white-space: nowrap;

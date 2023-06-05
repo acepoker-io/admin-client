@@ -7,14 +7,14 @@ import Tabs from "react-bootstrap/Tabs";
 import OpenTable from "../games/pokerGame/openTable";
 // import ReactPaginate from "react-paginate";
 //import GameHistory from "../games/pokerGame/gameHistory";
-// import TournamentHistory from "../games/pokerGame/tournamentHistory";
+import TournamentHistory from "../games/pokerGame/tournamentHistory";
 // import TournamentDateTable from "../games/pokerGame/tournamentTable";
 import { adminInstance } from "../../config/axios";
 import ReactPaginate from "react-paginate";
 // import ReactPaginate from "react-paginate";
 
 const PokerGame = () => {
-  const [key, setKey] = useState("home");
+  const [key, setKey] = useState("Open table");
   const [allRooms, setAllrooms] = useState([]);
   const [skip, setSkip] = useState(0);
   const [allRoomsCount, setAllRoomsCount] = useState(0);
@@ -45,6 +45,11 @@ const PokerGame = () => {
     setPageCount(Math.ceil(allRoomsCount / pageLimit));
   }, [allRoomsCount, pageLimit]);
 
+  const handleTabSelect = (k) => {
+    console.log("k   =>", k);
+    setKey(k);
+  };
+
   return (
     <div className='userlist-page'>
       <Breadcrumb title='Poker-Game' parent='Game' />
@@ -56,21 +61,20 @@ const PokerGame = () => {
                 <Tabs
                   id='controlled-tab-example'
                   activeKey={key}
-                  onSelect={(k) => setKey(k)}
+                  onSelect={handleTabSelect}
                   className='mb-3'>
-                  <Tab eventKey='home' title='Open table'>
+                  <Tab eventKey='Open table' title='Open table'>
                     <OpenTable
                       allRooms={allRooms}
                       setKeyword={setKeyword}
                       getAllPokerTable={getAllPokerTable}
                     />
                   </Tab>
-                  {/* <Tab eventKey="2" title="Tournament Table">
+                  <Tab eventKey='Tournament tab' title='Tournament Table'>
                     <TournamentHistory />
-                  </Tab> */}
-                  {/* <Tab eventKey='3' title='Poker Tournament History'>
-                  </Tab> */}
-                  {/* <TournamentDateTable /> */}
+                  </Tab>
+                  {/* <Tab eventKey='3' title='Poker Tournament History'></Tab>
+                  <TournamentDateTable /> */}
                   {/* <Tab eventKey='3' title='Sit & Go'>
                     <div className='opentable-body'>
                       <div className='noCardtable'>
@@ -82,7 +86,8 @@ const PokerGame = () => {
                     <GameHistory />
                   </Tab> */}
                 </Tabs>
-                {allRoomsCount > 10 ? (
+                {console.log("selectedTab ===>", key)}
+                {key === "Open table" && allRoomsCount > 10 ? (
                   <div className='adminPagination'>
                     <ReactPaginate
                       breakLabel='...'

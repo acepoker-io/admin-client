@@ -11,6 +11,7 @@ import DeletePopup from "../../model/confirmationPopup";
 import { adminInstance } from "../../../config/axios";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 const OpenTable = ({ allRooms, setKeyword, getAllPokerTable }) => {
   // const gameInit = {
@@ -32,8 +33,6 @@ const OpenTable = ({ allRooms, setKeyword, getAllPokerTable }) => {
   const handleShow = () => {
     setShow(true);
   };
-
-  useState(() => {});
 
   const handleDeleteTable = (room) => {
     setDeleteId(room._id);
