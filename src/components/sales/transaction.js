@@ -85,8 +85,8 @@ const Transaction = () => {
                       onChange={(e) => setFilter(e.target.value)}>
                       <option value=''>All Transaction</option>
                       <option value='poker'>Poker</option>
-                      <option value='blackjack'>Blackjack</option>
-                      <option value='slot'>Slot</option>
+                      <option value='deposit'>Deposit</option>
+                      <option value='withdraw'>Withdraw</option>
                     </select>
                   </div>
                   <FormGroup className='searchFromgroup'>
@@ -137,12 +137,12 @@ const Transaction = () => {
                               <div className='user-amountTransaction'>
                                 {el?.amount?.toString()?.startsWith("-") ? (
                                   <>
-                                    {el?.amount?.toFixed(2) * -1}
+                                    {el?.amount * -1}
                                     <FaCaretDown />
                                   </>
                                 ) : (
                                   <>
-                                    {el?.amount?.toFixed(2)}
+                                    {el?.amount}
                                     <FaCaretUp />
                                   </>
                                 )}
