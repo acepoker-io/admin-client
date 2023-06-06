@@ -35,7 +35,7 @@ const ActionDropdown = ({
             <Dropdown.Toggle id='dropdown-basic'>
               <FaEllipsisV />
             </Dropdown.Toggle>
-            <Dropdown.Menu align="start" className='userdropdownAction'>
+            <Dropdown.Menu align='start' className='userdropdownAction'>
               {/* <Dropdown.Item onClick={handleShowUserInfo}>
                 <FaInfoCircle /> View Profile
               </Dropdown.Item> */}
@@ -49,7 +49,7 @@ const ActionDropdown = ({
                 <FaWallet /> Update user
               </Dropdown.Item>
               <Dropdown.Item onClick={handleDeleteUser}>
-                <FaWallet /> delete user
+                <FaWallet /> Delete user
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
