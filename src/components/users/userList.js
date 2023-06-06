@@ -168,8 +168,8 @@ const UserList = () => {
   return (
     <>
       {loader && <Loader />}
-      <div className='userlist-page'>
-        <Breadcrumb title='User-list' parent='User' />
+      <div className='userlist-page pt-2'>
+        {/* <Breadcrumb title='User-list' parent='User' /> */}
 
         <Container fluid={true}>
           <Row>

@@ -212,7 +212,7 @@ const CreatePokerTableModal = ({ show, onHide, getAllPokerTable, setShow }) => {
                 <div className='blindFields-box'>
                   <div>
                     {" "}
-                    <Form.Label>Small Blind</Form.Label>
+                    <Form.Label >Small Blind</Form.Label>
                     <Form.Control
                       name='minchips'
                       type='number'
@@ -226,7 +226,7 @@ const CreatePokerTableModal = ({ show, onHide, getAllPokerTable, setShow }) => {
                   </div>
                   <div>
                     {" "}
-                    <Form.Label>Big Blind</Form.Label>
+                    <Form.Label className="pt-3">Big Blind</Form.Label>
                     <Form.Control
                       name='maxchips'
                       type='number'
