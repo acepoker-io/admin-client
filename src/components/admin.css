@@ -110,6 +110,8 @@ body {
   justify-content: center;
   list-style-type: none;
   padding: 0 5rem;
+  gap:10px;
+  flex-wrap: wrap;
 }
 
 .user-datatable ul li {
