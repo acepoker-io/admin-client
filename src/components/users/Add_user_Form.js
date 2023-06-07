@@ -19,20 +19,19 @@ const AddUserForm = ({ getAllUser, setShowInfo }) => {
   const updateUserDetail = async (values) => {
     try {
       setSpinLoader(true);
-      const response = await adminInstance().post(
-        `/create-user`,values,
-      );
+      const response = await adminInstance().post(`/create-user`, values);
       setSpinLoader(false);
       const {
-        data: { user },
+        data: { result },
       } = response;
-      if (user) {
+      if (result?.success) {
         getAllUser();
-        // setShowInfo(false);
-        // toast.success(`User created successfully`);
+        setShowInfo(false);
+        toast.success(`User created successfully`);
       }
     } catch (e) {
       setSpinLoader(false);
+      // console.log("Error ==>", e);
       if (axios.isAxiosError(e) && e.response) {
         if (e.response.status !== 200) {
           toast.error(e?.response?.data?.message, { toastId: "login" });
@@ -43,25 +42,24 @@ const AddUserForm = ({ getAllUser, setShowInfo }) => {
   return (
     <>
       <div className='opentableModal'>
-        <div className='userInfoProfile'>
-        </div>
+        <div className='userInfoProfile'></div>
         <Form onSubmit={handleSubmit(updateUserDetail)}>
           <FormGroup>
             <Label>
               <h4>Username</h4>
-
             </Label>
             <Input
               type='text'
               name='username'
-              autoComplete="off"
+              autoComplete='off'
               placeholder='Username'
               onChange={(e) => setValue("username", e.target.value)}
               onFocus={(e) => {
-                if (e.target.hasAttribute('readonly')) {
-                  e.target.removeAttribute('readonly');
+                if (e.target.hasAttribute("readonly")) {
+                  e.target.removeAttribute("readonly");
                   // fix for mobile safari to show virtual keyboard
-                  e.target.blur(); e.target.focus();
+                  e.target.blur();
+                  e.target.focus();
                 }
               }}
               readOnly={true}
