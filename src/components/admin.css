@@ -78,6 +78,7 @@ body {
   vertical-align: middle;
   font-size: 15px;
   white-space: nowrap;
+  text-align: left;
 }
 
 .user-amountTransaction {
@@ -110,6 +111,8 @@ body {
   justify-content: center;
   list-style-type: none;
   padding: 0 5rem;
+  gap:5px;
+  flex-wrap: wrap;
 }
 
 .user-datatable ul li {

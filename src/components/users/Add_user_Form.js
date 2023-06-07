@@ -28,8 +28,8 @@ const AddUserForm = ({ getAllUser, setShowInfo }) => {
       } = response;
       if (user) {
         getAllUser();
-        setShowInfo(false);
-        toast.success(`User created successfully`);
+        // setShowInfo(false);
+        // toast.success(`User created successfully`);
       }
     } catch (e) {
       setSpinLoader(false);
