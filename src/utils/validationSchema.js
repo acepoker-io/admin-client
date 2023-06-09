@@ -36,6 +36,7 @@ export const tournamentSchema = yup.object().shape({
   buyIn: yup.string().required("Buy In is required"),
   // prizeType: yup.string().required("Prize Type is required"),
   havePlayers: yup.string().required("Have player is required"),
+  minimumPlayers: yup.string().required("Minimum player is required"),
   // winTotalPlayer: yup.string().when("prizeType", {
   //   is: "Fixed",
   //   then: yup.string().required("Win total player is required"),
