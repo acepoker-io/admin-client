@@ -362,6 +362,16 @@ const CreateTableModal = ({
                       {...register("havePlayers")}
                     />
                   </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Minimum Players</Form.Label>
+                    <Form.Control
+                      type='number'
+                      name='havePlayers'
+                      placeholder='No. of players'
+                      defaultValue={singleTournament?.minimumPlayers}
+                      {...register("minimumPlayers")}
+                    />
+                  </Form.Group>
                 </div>
               </div>
               <Form.Group className='userBuy'>
