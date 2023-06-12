@@ -375,6 +375,17 @@ const CreateTableModal = ({
                 </div>
               </div>
               <Form.Group className='userBuy'>
+                <Form.Label>Hours to start tournament</Form.Label>
+                <Form.Control
+                  type='number'
+                  name='hoursToStart'
+                  defaultValue={singleTournament?.hoursToStart}
+                  placeholder='Enter Hours'
+                  {...register("hoursToStart")}
+                />
+              </Form.Group>
+
+              <Form.Group className='userBuy'>
                 <Form.Label>First Winner</Form.Label>
                 <Form.Control
                   type='number'
