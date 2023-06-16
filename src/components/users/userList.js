@@ -169,7 +169,7 @@ const UserList = () => {
     <>
       {loader && <Loader />}
       <div className='userlist-page pt-2'>
-        {/* <Breadcrumb title='User-list' parent='User' /> */} 
+        {/* <Breadcrumb title='User-list' parent='User' /> */}
 
         <Container fluid={true}>
           <Row>
@@ -502,7 +502,14 @@ const UpdateUserWallet = ({
             >
               {!spinLoader ? "Update" : <Spinner animation='border' />}
             </button>
-            <button className='darkBtn'>Cancel</button>
+            <button
+              type='button'
+              onClick={() => {
+                handleShowUpdateWallet();
+              }}
+              className='darkBtn'>
+              Cancel
+            </button>
           </Modal.Footer>
         </Form>
       </Modal>
