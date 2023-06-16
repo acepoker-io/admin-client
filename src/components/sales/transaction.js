@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import Breadcrumb from "../common/breadcrumb";
-import { FaSearch, FaCaretUp, FaCaretDown } from "react-icons/fa";
+import { FaSearch, FaCaretUp, FaCaretDown, FaSort } from "react-icons/fa";
 import {
   Card,
   CardBody,
@@ -34,18 +34,32 @@ const Transaction = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageLimit, setPageLimit] = useState(10);
   const [loader, setLoader] = useState(true);
+  const [searchKey, setSearchKey] = useState("");
+  const [selectedPage, setSelectedPage] = useState(0);
+  const [sort, setSort] = useState(-1);
+  const [sortBy, setSortBy] = useState("");
   // const pageLimit = 10;
   useEffect(() => {
     setPageCount(Math.ceil(transactionCount / pageLimit));
-  }, [transactionCount]);
+  }, [transactionCount, pageLimit]);
   const handlePageClick = ({ selected }) => {
     setSkip(selected * pageLimit);
     setCurrentPage(selected + 1);
+    setSelectedPage(selected);
   };
-  const getAllUser = async () => {
+  const getAllTransaction = async () => {
     try {
       const res = await adminAuthInstance().get("/allTransaction", {
-        params: { skip: skip, limit: pageLimit, filter },
+        params: {
+          skip: skip,
+          limit: pageLimit,
+          filter,
+          searchKey,
+          sort: {
+            sortBy,
+            sort,
+          },
+        },
         headers: {
           Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
         },
@@ -61,13 +75,49 @@ const Transaction = () => {
       }
     }
   };
+
   useEffect(() => {
-    getAllUser();
-  }, [skip, filter, pageLimit]);
+    const source = axios.CancelToken.source();
+    let timeOut = setTimeout(async () => {
+      getAllTransaction();
+    }, 1000);
+
+    return () => {
+      clearInterval(timeOut);
+      source.cancel("Request canceled");
+    };
+  }, [skip, filter, pageLimit, searchKey, sortBy, sort]);
 
   const handlePagination = async (value) => {
     setPageLimit(value);
+    setSelectedPage(0);
+    setCurrentPage(1);
+    setSkip(0);
+    setSortBy("");
+    setSort(-1);
   };
+
+  const handleSearch = (e) => {
+    setSearchKey(e.target.value);
+    setSkip(0);
+    setSelectedPage(0);
+    setCurrentPage(1);
+    setSortBy("");
+    setSort(-1);
+  };
+
+  const handleFilter = (e) => {
+    setSkip(0);
+    setSelectedPage(0);
+    setCurrentPage(1);
+    setFilter(e.target.value);
+  };
+
+  const handleSortBy = (key) => {
+    setSortBy(key);
+    setSort(sort * -1);
+  };
+
   return (
     <>
       {loader && <Loader />}
@@ -82,7 +132,7 @@ const Transaction = () => {
                     <select
                       aria-label='Default select example'
                       className='form-control'
-                      onChange={(e) => setFilter(e.target.value)}>
+                      onChange={handleFilter}>
                       <option value=''>All Transaction</option>
                       <option value='poker'>Poker</option>
                       <option value='deposit'>Deposit</option>
@@ -96,6 +146,7 @@ const Transaction = () => {
                       id='exampleEmail'
                       placeholder='Search here...'
                       className='searchFromInput'
+                      onChange={handleSearch}
                     />
                     <FaSearch className='searchlens' />
                   </FormGroup>
@@ -110,7 +161,13 @@ const Transaction = () => {
                           <th>Username</th>
                           <th>Tokens</th>
                           <th>Source Type</th>
-                          <th>Date</th>
+                          <th
+                            onClick={() => {
+                              handleSortBy("createdAt");
+                            }}>
+                            Date
+                            <FaSort />
+                          </th>
                           {/* <th>Phone</th>
                       <th>Payment Status</th> */}
                         </tr>
@@ -119,7 +176,7 @@ const Transaction = () => {
                         {allTransaction?.map((el, i) => (
                           <tr>
                             <th scope='row'>
-                              {(currentPage - 1) * 10 + (i + 1)}
+                              {(currentPage - 1) * skip + (i + 1)}
                             </th>
                             {/* <td className="latest-user-image">
                               <img
@@ -185,6 +242,7 @@ const Transaction = () => {
                       breakLabel='...'
                       nextLabel='next >'
                       onPageChange={handlePageClick}
+                      forcePage={selectedPage}
                       pageRangeDisplayed={5}
                       pageCount={pageCount}
                       previousLabel='< previous'
