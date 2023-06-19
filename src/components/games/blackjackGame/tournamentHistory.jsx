@@ -52,7 +52,7 @@ const TournamentHistory = () => {
       const response = await pokerTournamentInstance().get("/AllTournament", {
         params: { skip, limit: pageLimit },
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+          Authorization: `Bearer ${ localStorage.getItem("adminToken") }`,
         },
       });
       const {
@@ -100,7 +100,7 @@ const TournamentHistory = () => {
         {
           params: { tournamentId: deleteId },
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+            Authorization: `Bearer ${ localStorage.getItem("adminToken") }`,
           },
         }
       );
@@ -157,7 +157,7 @@ const TournamentHistory = () => {
                         <thead>
                           <tr>
                             <th>Tournament Name</th>
-                            <th>Tournament Fess</th>
+                            <th>Tournament Fees</th>
                             <th>Start Date</th>
                             <th>Status</th>
                             <th>Action</th>
