@@ -176,6 +176,7 @@ const TournamentHistory = () => {
                             <th>Tournament Fess</th>
                             <th>Start Date</th>
                             <th>Start Time</th>
+                            <th>Buy-In</th>
                             <th>Status</th>
                             <th>Action</th>
                           </tr>
@@ -197,6 +198,7 @@ const TournamentHistory = () => {
                                     el?.tournamentDate
                                   )?.toLocaleTimeString() : "Not Started"}
                                 </td>
+                                <td>{el.buyIn}</td>
                                 <td
                                   className={
                                     el.isStart
