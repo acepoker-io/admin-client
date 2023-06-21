@@ -173,7 +173,7 @@ const TournamentHistory = () => {
                         <thead>
                           <tr>
                             <th>Tournament Name</th>
-                            <th>Tournament Fess</th>
+                            <th>Tournament Fees</th>
                             <th>Start Date</th>
                             <th>Start Time</th>
                             <th>Buy-In</th>
