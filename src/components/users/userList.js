@@ -231,7 +231,7 @@ const UserList = () => {
                             <td>{el.username}</td>
                             {/* <td>{el.phone}</td> */}
                             {/* <td className="pending">Pending</td> */}
-                            <td>{numFormatter(el.wallet)}</td>
+                            <td>{el.wallet}</td>
                             <td
                               className={
                                 el.isBlock ? "blockActive" : "userStatusActive"
