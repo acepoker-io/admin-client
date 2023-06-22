@@ -30,7 +30,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { updateWalletSchema } from "../../utils/validationSchema";
 import Loader from "../pageLoader/loader";
-import numFormatter from "../../utils/utils";
+// import numFormatter from "../../utils/utils";
 import AddUserForm from "./Add_user_Form";
 
 const UserList = () => {
