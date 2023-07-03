@@ -126,7 +126,8 @@ const CreateTableModal = ({
     register,
     reset,
     setValue,
-    // watch,
+    setError,
+    watch,
   } = useForm({
     mode: "onBlur",
     defaultValues: {
@@ -138,6 +139,20 @@ const CreateTableModal = ({
   });
   // const [winTotalPlayer, setWinTotalPlayer] = useState({});
   const [spinLoader, setSpinLoader] = useState(false);
+  // const [havePlayers, setHavePlayers] = useState(singleTournament?.havePlayers);
+  // const [minimumPlayers, setMinimumPlayers] = useState(
+  //   singleTournament?.minimumPlayers
+  // );
+
+  const havePlayers = watch("havePlayers");
+  const minimumPlayers = watch("minimumPlayers");
+
+  // console.log("watchh==>", minimumPlayers, havePlayers);
+  // if (minimumPlayers < havePlayers) {
+  //   console.log("entered in  if cond");
+  //   setValue("minimumPlayers", "");
+  // }
+
   // const [datePicker, setDatePicker] = useState(
   //   singleTournament?.tournamentDate
   //     ? new Date(singleTournament?.tournamentDate)
@@ -214,6 +229,41 @@ const CreateTableModal = ({
     setValue("bigBlind", Number(value * 2));
     // console.log({value,name})
     // setValue('bigBlind',)
+  };
+
+  const handleHavePlayers = (e) => {
+    const { value } = e.target;
+    console.log(value);
+
+    if (minimumPlayers && parseFloat(minimumPlayers) > parseFloat(value)) {
+      setValue("havePlayers", "");
+      setError("havePlayers", {
+        type: "custom",
+        message: "Should be greater than minimum players",
+      });
+    } else {
+      setError("havePlayers", {
+        type: "custom",
+        message: "",
+      });
+    }
+  };
+
+  const handleMinimumPlayers = (e) => {
+    const { value } = e.target;
+    console.log("VAlueeeeee =====>", value);
+    if (havePlayers && parseFloat(havePlayers) < parseFloat(value)) {
+      setValue("minimumPlayers", "");
+      setError("minimumPlayers", {
+        type: "custom",
+        message: "Should be less than minimum players",
+      });
+    } else {
+      setError("minimumPlayers", {
+        type: "custom",
+        message: "",
+      });
+    }
   };
 
   return (
@@ -360,17 +410,30 @@ const CreateTableModal = ({
                       placeholder='No. of players'
                       defaultValue={singleTournament?.havePlayers}
                       {...register("havePlayers")}
+                      onBlur={handleHavePlayers}
                     />
+                    {errors?.havePlayers && (
+                      <p className='error-msg'>
+                        {errors?.havePlayers?.message}
+                      </p>
+                    )}
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Minimum Players</Form.Label>
                     <Form.Control
                       type='number'
-                      name='havePlayers'
+                      name='minimumPlayers'
                       placeholder='No. of players'
                       defaultValue={singleTournament?.minimumPlayers}
+                      // onChange={}
                       {...register("minimumPlayers")}
+                      onBlur={handleMinimumPlayers}
                     />
+                    {errors?.minimumPlayers && (
+                      <p className='error-msg'>
+                        {errors?.minimumPlayers?.message}
+                      </p>
+                    )}
                   </Form.Group>
                 </div>
               </div>

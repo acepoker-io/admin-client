@@ -21,10 +21,13 @@ const ActionDropdown = ({
               <FaEllipsisV />
             </Dropdown.Toggle>
             <Dropdown.Menu className='userdropdownAction'>
-              <Dropdown.Item onClick={handleShowUserInfo}>
-                <FaInfoCircle />
-                Update
-              </Dropdown.Item>
+              {!data.round && !data.isFinished && !data.isStart ? (
+                <Dropdown.Item onClick={handleShowUserInfo}>
+                  <FaInfoCircle />
+                  Update
+                </Dropdown.Item>
+              ) : null}
+
               <Dropdown.Item onClick={handleShowUserBlock}>
                 <FaBan /> Delete
               </Dropdown.Item>
