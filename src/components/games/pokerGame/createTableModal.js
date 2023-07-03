@@ -256,7 +256,7 @@ const CreateTableModal = ({
       setValue("minimumPlayers", "");
       setError("minimumPlayers", {
         type: "custom",
-        message: "Should be less than minimum players",
+        message: "Should be less than have players",
       });
     } else {
       setError("minimumPlayers", {
