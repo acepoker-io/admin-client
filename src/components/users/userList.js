@@ -228,7 +228,7 @@ const UserList = () => {
                               {el.firstName}
                             </td>
                             <td>{el.email}</td> */}
-                            <td>{el.username}</td>
+                            <td>{el.metaMaskAddress || el.username}</td>
                             {/* <td>{el.phone}</td> */}
                             {/* <td className="pending">Pending</td> */}
                             <td>{el.wallet}</td>
