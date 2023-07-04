@@ -51,9 +51,12 @@ const ActionDropdown = ({
               <Dropdown.Item onClick={handleUpdateUser}>
                 <FaWallet /> Update user
               </Dropdown.Item>
-              <Dropdown.Item onClick={handleDeleteUser}>
-                <FaWallet /> Delete user
-              </Dropdown.Item>
+              {console.log("data ====> ", data)}
+              {data.role !== "admin" ? (
+                <Dropdown.Item onClick={handleDeleteUser}>
+                  <FaWallet /> Delete user
+                </Dropdown.Item>
+              ) : null}
             </Dropdown.Menu>
           </Dropdown>
         )}
