@@ -216,7 +216,6 @@ a.btn.btn-primary:focus-visible {
   gap: 5px;
   padding: 10px;
   color: #000;
-
 }
 
 .tablecard .cardDetail .allUsersImg {
@@ -272,7 +271,6 @@ a.btn.btn-primary:focus-visible {
   padding: 0px 18px !important;
   background-color: #e9eaec !important;
   appearance: none;
-
 }
 
 .transactionSelect .selectContainer .form-control {
@@ -477,7 +475,7 @@ svg.searchlens:hover {
   box-shadow: none !important;
 }
 
-.threedotDiv .show>.btn-primary.dropdown-toggle {
+.threedotDiv .show > .btn-primary.dropdown-toggle {
   color: #191919 !important;
 }
 
@@ -490,6 +488,7 @@ svg.searchlens:hover {
   font-size: 16px;
   line-height: 1.7;
   letter-spacing: 0.7px;
+  line-break: anywhere;
 }
 
 .userInfoModal .modal-title.h4,
@@ -516,6 +515,7 @@ svg.searchlens:hover {
   line-height: 28px !important;
   text-transform: none !important;
   color: #000000;
+  text-wrap: nowrap;
 }
 
 .userInfoModal .modal-title.h4 {
@@ -1020,7 +1020,7 @@ p.error-msg {
   background-color: rgba(0, 0, 0, 0);
 }
 
-.tab-pane.active.show .admin-table .table tr:nth-of-type(even)>* {
+.tab-pane.active.show .admin-table .table tr:nth-of-type(even) > * {
   background: #141414cc;
 }
 
@@ -1033,11 +1033,11 @@ p.error-msg {
 .btn-secondary:active,
 .btn-secondary:focus {
   background-color: grey !important;
-  border-color: grey  !important;
+  border-color: grey !important;
   color: #ffffff !important;
 }
 
-.page-main-header .main-header-right .nav-right>ul>li:first-child {
+.page-main-header .main-header-right .nav-right > ul > li:first-child {
   border-left: none;
   width: 100% !important;
 }
