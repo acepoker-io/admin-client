@@ -756,6 +756,20 @@ p.error-msg {
   color: #dc3545;
   cursor: pointer;
 }
+.inputDateRange {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0 auto;
+  width: 100%;
+}
+.reportDropdowns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 @media screen and (max-width: 1400px) {
   .OpenTable .tableCards {

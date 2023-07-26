@@ -1,4 +1,4 @@
-import { FaDiceD20 } from "react-icons/fa";
+import { FaDiceD20, FaBook } from "react-icons/fa";
 import {
   Home,
   Users,
@@ -49,6 +49,23 @@ export const MENUITEMS = [
     active: false,
     children: [
       { path: "/games/poker", title: "Poker", type: "link" },
+      // {path:'/games/blackjack', title: 'BlackJack', type: 'link'},
+      // {path:'/games/slots', title: 'Slots', type: 'link'},
+      // {path:'/games/roulette', title: 'Roulette', type: 'link'}
+    ],
+  },
+  {
+    title: "Reports",
+    icon: FaBook,
+    type: "sub",
+    active: false,
+    children: [
+      {
+        path: "/reports-deposit-withdraw",
+        title: "Deposit & Withdraw",
+        type: "link",
+      },
+      { path: "/user-reports", title: "User Report", type: "link" },
       // {path:'/games/blackjack', title: 'BlackJack', type: 'link'},
       // {path:'/games/slots', title: 'Slots', type: 'link'},
       // {path:'/games/roulette', title: 'Roulette', type: 'link'}
