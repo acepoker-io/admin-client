@@ -30,6 +30,8 @@ import ResetPassword from "./components/auth/resetPassword";
 import AdminContext from "./components/context/adminContgext";
 import { adminInstance } from "./config/axios";
 import { PrivateRoute } from "./components/privateRoute/privateRoute";
+import DepositWithdraw from "./components/reports/DepositWithdraw";
+import UserReports from "./components/reports/userReports";
 // import Loader from "./components/pageLoader/loader";
 
 const Root = () => {
@@ -125,6 +127,15 @@ const Root = () => {
             <PrivateRoute
               path={`${process.env.PUBLIC_URL}/games/poker`}
               component={Poker}
+            />
+
+            <PrivateRoute
+              path={`${process.env.PUBLIC_URL}/reports-deposit-withdraw`}
+              component={DepositWithdraw}
+            />
+            <PrivateRoute
+              path={`${process.env.PUBLIC_URL}/user-reports`}
+              component={UserReports}
             />
             {/* <PrivateRoute
               path={`${process.env.PUBLIC_URL}/games/blackjack`}
