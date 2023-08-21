@@ -12,6 +12,7 @@ import {
   Table,
   Input,
   FormGroup,
+  Spinner,
 } from "reactstrap";
 // import { Form } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
@@ -19,6 +20,8 @@ import { adminAuthInstance } from "../../config/axios";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Loader from "../pageLoader/loader";
+import NoData from "../kyc/noData";
+import TableLoader from "../kyc/loader";
 let options = {
   weekday: "long",
   year: "numeric",
@@ -38,6 +41,8 @@ const Transaction = () => {
   const [selectedPage, setSelectedPage] = useState(0);
   const [sort, setSort] = useState(-1);
   const [sortBy, setSortBy] = useState("");
+  const [mainLoading, setMainLoading] = useState(true);
+  const [tableLoader, setTableLoader] = useState(true);
   // const pageLimit = 10;
   useEffect(() => {
     setPageCount(Math.ceil(transactionCount / pageLimit));
@@ -48,6 +53,8 @@ const Transaction = () => {
     setSelectedPage(selected);
   };
   const getAllTransaction = async () => {
+    setMainLoading(true);
+    setTableLoader(true);
     try {
       const res = await adminAuthInstance().get("/allTransaction", {
         params: {
@@ -64,6 +71,8 @@ const Transaction = () => {
           Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
         },
       });
+      setMainLoading(false);
+      setTableLoader(false);
       setAllTransaction(res?.data?.transaction);
       setTransactionCount(res?.data?.count);
       setLoader(false);
@@ -152,103 +161,130 @@ const Transaction = () => {
                   </FormGroup>
                 </CardHeader>
                 <CardBody className='user-datatable'>
-                  {allTransaction && allTransaction?.length > 0 ? (
-                    <Table responsive>
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          {/* <th>Avatar</th> */}
-                          <th>Username</th>
-                          <th>Tokens</th>
-                          <th>Source Type</th>
-                          <th
-                            onClick={() => {
-                              handleSortBy("createdAt");
-                            }}>
-                            Date
-                            <FaSort />
-                          </th>
-                          {/* <th>Phone</th>
+                  <Table responsive>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        {/* <th>Avatar</th> */}
+                        <th>Username</th>
+                        <th>Tokens</th>
+                        <th>Source Type</th>
+                        <th
+                          onClick={() => {
+                            handleSortBy("createdAt");
+                          }}>
+                          Date
+                          <FaSort />
+                        </th>
+                        {/* <th>Phone</th>
                       <th>Payment Status</th> */}
-                        </tr>
-                      </thead>
+                      </tr>
+                    </thead>
+                    {tableLoader ? (
                       <tbody>
-                        {allTransaction?.map((el, i) => (
+                        <tr>
+                          <td colSpan={9} style={{ textAlign: "center" }}>
+                            <Spinner
+                              className='tableSpinner'
+                              animation='border'
+                            />
+                          </td>
+                        </tr>
+                      </tbody>
+                    ) : (
+                      <tbody>
+                        {!mainLoading ? (
+                          allTransaction.length > 0 ? (
+                            allTransaction?.map((el, i) => (
+                              <tr>
+                                <th scope='row'>
+                                  {(currentPage - 1) * skip + (i + 1)}
+                                </th>
+                                {/* <td className="latest-user-image">
+                                <img
+                                  src={el?.userId?.profile || user}
+                                  alt="user profile"
+                                />
+                              </td> */}
+                                <td>{el?.userId?.username}</td>
+                                <td
+                                  className={`${
+                                    el?.amount?.toString()?.startsWith("-")
+                                      ? "blockActive"
+                                      : "userStatusActive"
+                                  } `}>
+                                  <div className='user-amountTransaction'>
+                                    {el?.amount?.toString()?.startsWith("-") ? (
+                                      <>
+                                        {el?.amount * -1}
+                                        <FaCaretDown />
+                                      </>
+                                    ) : (
+                                      <>
+                                        {el?.amount}
+                                        <FaCaretUp />
+                                      </>
+                                    )}
+                                  </div>
+                                </td>
+                                <td className='transactionTypeTd'>
+                                  {el?.transactionType}
+                                </td>
+                                <td>
+                                  {new Date(el?.createdAt)?.toLocaleDateString(
+                                    "en-US",
+                                    options
+                                  )}
+                                </td>
+                              </tr>
+                            ))
+                          ) : (
+                            <tr>
+                              <td colSpan={10}>
+                                <NoData />
+                              </td>
+                            </tr>
+                          )
+                        ) : (
                           <tr>
-                            <th scope='row'>
-                              {(currentPage - 1) * skip + (i + 1)}
-                            </th>
-                            {/* <td className="latest-user-image">
-                              <img
-                                src={el?.userId?.profile || user}
-                                alt="user profile"
-                              />
-                            </td> */}
-                            <td>{el?.userId?.username}</td>
-                            <td
-                              className={`${
-                                el?.amount?.toString()?.startsWith("-")
-                                  ? "blockActive"
-                                  : "userStatusActive"
-                              } `}>
-                              <div className='user-amountTransaction'>
-                                {el?.amount?.toString()?.startsWith("-") ? (
-                                  <>
-                                    {el?.amount * -1}
-                                    <FaCaretDown />
-                                  </>
-                                ) : (
-                                  <>
-                                    {el?.amount}
-                                    <FaCaretUp />
-                                  </>
-                                )}
-                              </div>
-                            </td>
-                            <td className='transactionTypeTd'>
-                              {el?.transactionType}
-                            </td>
-                            <td>
-                              {new Date(el?.createdAt)?.toLocaleDateString(
-                                "en-US",
-                                options
-                              )}
+                            <td colSpan={10}>
+                              <TableLoader />
                             </td>
                           </tr>
-                        ))}
+                        )}
                       </tbody>
-                    </Table>
-                  ) : (
-                    <span>No record Found</span>
-                  )}
-                  <div className='adminPagination'>
-                    <div className='transactionSelect '>
-                      <div className='selectContainer'>
-                        <select
-                          className='form-control'
-                          aria-label='Default select example'
-                          onChange={(e) => handlePagination(e.target.value)}
-                          defaultValue={pageLimit}>
-                          <option>Select Page</option>
-                          <option value='10'>10</option>
-                          <option value='20'>20</option>
-                          <option value='30'>30</option>
-                          <option value='50'>50</option>
-                          <option value='100'>100</option>
-                        </select>
+                    )}
+                  </Table>
+                  {transactionCount && transactionCount >= 10 && (
+                    <div className='adminPagination'>
+                      <div className='transactionSelect '>
+                        <div className='selectContainer'>
+                          <select
+                            className='form-control'
+                            aria-label='Default select example'
+                            onChange={(e) => handlePagination(e.target.value)}
+                            defaultValue={pageLimit}>
+                            <option>Select Page</option>
+                            <option value='10'>10</option>
+                            <option value='20'>20</option>
+                            <option value='30'>30</option>
+                            <option value='50'>50</option>
+                            <option value='100'>100</option>
+                          </select>
+                        </div>
                       </div>
+                      <ReactPaginate
+                        breakLabel='...'
+                        nextLabel='next >'
+                        onPageChange={handlePageClick}
+                        forcePage={selectedPage}
+                        pageRangeDisplayed={5}
+                        pageCount={pageCount}
+                        previousLabel='< previous'
+                        renderOnZeroPageCount={null}
+                      />
                     </div>
-                    <ReactPaginate
-                      breakLabel='...'
-                      nextLabel='next >'
-                      onPageChange={handlePageClick}
-                      forcePage={selectedPage}
-                      pageRangeDisplayed={5}
-                      pageCount={pageCount}
-                      previousLabel='< previous'
-                      renderOnZeroPageCount={null}
-                    />
-                  </div>
+                  )}
                 </CardBody>
               </Card>
             </Col>

@@ -13,7 +13,7 @@
   overflow-x: auto;
 }
 
-.admin-table .table>thead {
+.admin-table .table > thead {
   background: #202020;
   border-radius: 9px 9px 0px 0px;
 }
@@ -346,7 +346,7 @@ button.popup-confirm-btn.btn.btn-primary {
 
 .la,
 .las {
-  font-family: 'Line Awesome Free' !important;
+  font-family: "Line Awesome Free" !important;
   font-weight: 900 !important;
 }
 
