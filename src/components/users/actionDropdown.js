@@ -11,6 +11,7 @@ const ActionDropdown = ({
   handleDeleteUser,
   data,
   type,
+  handleShowReject,
 }) => {
   return (
     <>
@@ -30,6 +31,25 @@ const ActionDropdown = ({
 
               <Dropdown.Item onClick={handleShowUserBlock}>
                 <FaBan /> Delete
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        ) : type === "redeem" ? (
+          <Dropdown>
+            <Dropdown.Toggle id='dropdown-basic'>
+              <FaEllipsisV />
+            </Dropdown.Toggle>
+            <Dropdown.Menu
+              drop='left'
+              align='Left'
+              flip='false'
+              alignRight='false'
+              className='userdropdownAction'>
+              <Dropdown.Item onClick={handleShowUserInfo}>
+                <FaInfoCircle /> Approve
+              </Dropdown.Item>
+              <Dropdown.Item onClick={handleShowReject}>
+                <FaInfoCircle /> Reject
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
