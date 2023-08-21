@@ -878,3 +878,9 @@ svg.react-datetime-picker__calendar-button__icon.react-datetime-picker__button__
     margin-bottom: 15px !important;
   }
 }
+
+.user-datatable .noTransactionFound {
+  margin: 50px auto;
+  font-size: 20px;
+  text-align: center;
+}

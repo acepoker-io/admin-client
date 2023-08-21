@@ -1,4 +1,4 @@
-import { FaDiceD20, FaBook } from "react-icons/fa";
+import { FaDiceD20, FaBook, FaAddressCard } from "react-icons/fa";
 import {
   Home,
   Users,
@@ -53,6 +53,13 @@ export const MENUITEMS = [
       // {path:'/games/slots', title: 'Slots', type: 'link'},
       // {path:'/games/roulette', title: 'Roulette', type: 'link'}
     ],
+  },
+  {
+    title: "Crypto Redeem",
+    path: "/cypto-redeem",
+    icon: FaAddressCard,
+    type: "link",
+    active: false,
   },
   {
     title: "Reports",

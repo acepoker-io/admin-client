@@ -32,6 +32,8 @@ import { adminInstance } from "./config/axios";
 import { PrivateRoute } from "./components/privateRoute/privateRoute";
 import DepositWithdraw from "./components/reports/DepositWithdraw";
 import UserReports from "./components/reports/userReports";
+import Cryptoredeem from "./components/crypto/cryptoredeem";
+
 // import Loader from "./components/pageLoader/loader";
 
 const Root = () => {
@@ -119,6 +121,11 @@ const Root = () => {
             <PrivateRoute
               path={`${process.env.PUBLIC_URL}/transaction`}
               component={Transaction}
+            />
+            <PrivateRoute
+              admin={admin}
+              path={`${process.env.PUBLIC_URL}/cypto-redeem`}
+              component={Cryptoredeem}
             />
             {/* <PrivateRoute
               path={`${process.env.PUBLIC_URL}/kyc`}
