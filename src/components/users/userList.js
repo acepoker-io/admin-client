@@ -32,6 +32,8 @@ import { updateWalletSchema } from "../../utils/validationSchema";
 import Loader from "../pageLoader/loader";
 // import numFormatter from "../../utils/utils";
 import AddUserForm from "./Add_user_Form";
+import TableLoader from "../kyc/loader";
+import NoData from "../kyc/noData";
 
 const UserList = () => {
   let num = 1;
@@ -51,6 +53,8 @@ const UserList = () => {
   const [showAddUser, setShowAddUser] = useState(false);
   const [deleteId, setDeleteId] = useState("");
   const [showDelete, setShowDelete] = useState(false);
+  const [mainLoading, setMainLoading] = useState(true);
+  const [tableLoader, setTableLoader] = useState(true);
   // const pageLimit = 10
   const handleShowUserInfo = (user) => {
     setShowInfo(!showInfo);
@@ -90,6 +94,8 @@ const UserList = () => {
     setSkip(selected * pageLimit);
   };
   const getAllUser = async () => {
+    setMainLoading(true);
+    setTableLoader(true);
     try {
       const res = await adminAuthInstance().get("/getAllUsers", {
         params: { skip, limit: pageLimit, keyword },
@@ -97,6 +103,8 @@ const UserList = () => {
           Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
         },
       });
+      setMainLoading(false);
+      setTableLoader(false);
       setAllUsers(res?.data?.users);
       setUserCount(res?.data?.count);
       setLoader(false);
@@ -208,13 +216,25 @@ const UserList = () => {
                         <th>Action</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      {allUsers &&
-                        allUsers?.length > 0 &&
-                        allUsers.map((el, i) => (
-                          <tr key={el.id + i}>
-                            <th scope='row'>{num + i}</th>
-                            {/* <td className="latest-user-image">
+                    {tableLoader ? (
+                      <tbody>
+                        <tr>
+                          <td colSpan={9} style={{ textAlign: "center" }}>
+                            <Spinner
+                              className='tableSpinner'
+                              animation='border'
+                            />
+                          </td>
+                        </tr>
+                      </tbody>
+                    ) : (
+                      <tbody>
+                        {!mainLoading ? (
+                          allUsers?.length > 0 ? (
+                            allUsers.map((el, i) => (
+                              <tr key={el.id + i}>
+                                <th scope='row'>{num + i}</th>
+                                {/* <td className="latest-user-image">
                               <img
                                 src={el?.profile || user}
                                 alt="user profile"
@@ -228,64 +248,86 @@ const UserList = () => {
                               {el.firstName}
                             </td>
                             <td>{el.email}</td> */}
-                            <td>{el.metaMaskAddress || el.username}</td>
-                            {/* <td>{el.phone}</td> */}
-                            {/* <td className="pending">Pending</td> */}
-                            <td>{el.wallet}</td>
-                            <td
-                              className={
-                                el.isBlock ? "blockActive" : "userStatusActive"
-                              }>
-                              {el.isBlock ? "Block" : "Active"}
-                            </td>
-                            <td className='actionDropdown'>
-                              <ActionDropdown
-                                handleShowUserInfo={() =>
-                                  handleShowUserInfo(el)
-                                }
-                                handleShowUserBlock={() =>
-                                  handleShowUserBlock(el)
-                                }
-                                handleShowUpdateWallet={() =>
-                                  handleShowUpdateWallet(el)
-                                }
-                                handleUpdateUser={() => handleUpdateUser(el)}
-                                handleDeleteUser={() => handleDeleteUser(el)}
-                                data={el}
-                              />
+                                <td>{el.metaMaskAddress || el.username}</td>
+                                {/* <td>{el.phone}</td> */}
+                                {/* <td className="pending">Pending</td> */}
+                                <td>{el.wallet}</td>
+                                <td
+                                  className={
+                                    el.isBlock
+                                      ? "blockActive"
+                                      : "userStatusActive"
+                                  }>
+                                  {el.isBlock ? "Block" : "Active"}
+                                </td>
+                                <td className='actionDropdown'>
+                                  <ActionDropdown
+                                    handleShowUserInfo={() =>
+                                      handleShowUserInfo(el)
+                                    }
+                                    handleShowUserBlock={() =>
+                                      handleShowUserBlock(el)
+                                    }
+                                    handleShowUpdateWallet={() =>
+                                      handleShowUpdateWallet(el)
+                                    }
+                                    handleUpdateUser={() =>
+                                      handleUpdateUser(el)
+                                    }
+                                    handleDeleteUser={() =>
+                                      handleDeleteUser(el)
+                                    }
+                                    data={el}
+                                  />
+                                </td>
+                              </tr>
+                            ))
+                          ) : (
+                            <tr>
+                              <td colSpan={10}>
+                                <NoData />
+                              </td>
+                            </tr>
+                          )
+                        ) : (
+                          <tr>
+                            <td colSpan={10}>
+                              <TableLoader />
                             </td>
                           </tr>
-                        ))}
-                      <br />
-                    </tbody>
+                        )}
+                      </tbody>
+                    )}
                   </Table>
-                  <div className='adminPagination'>
-                    <div className='transactionSelect '>
-                      <div className='selectContainer'>
-                        <select
-                          className='form-control'
-                          aria-label='Default select example'
-                          onChange={(e) => handlePagination(e.target.value)}
-                          defaultValue={pageLimit}>
-                          <option>Select Page</option>
-                          <option value='10'>10</option>
-                          <option value='20'>20</option>
-                          <option value='30'>30</option>
-                          <option value='50'>50</option>
-                          <option value='100'>100</option>
-                        </select>
+                  {allUsers && userCount >= 10 && (
+                    <div className='adminPagination'>
+                      <div className='transactionSelect '>
+                        <div className='selectContainer'>
+                          <select
+                            className='form-control'
+                            aria-label='Default select example'
+                            onChange={(e) => handlePagination(e.target.value)}
+                            defaultValue={pageLimit}>
+                            <option>Select Page</option>
+                            <option value='10'>10</option>
+                            <option value='20'>20</option>
+                            <option value='30'>30</option>
+                            <option value='50'>50</option>
+                            <option value='100'>100</option>
+                          </select>
+                        </div>
                       </div>
+                      <ReactPaginate
+                        breakLabel='...'
+                        nextLabel='next >'
+                        onPageChange={handlePageClick}
+                        pageRangeDisplayed={5}
+                        pageCount={pageCount}
+                        previousLabel='< previous'
+                        renderOnZeroPageCount={null}
+                      />
                     </div>
-                    <ReactPaginate
-                      breakLabel='...'
-                      nextLabel='next >'
-                      onPageChange={handlePageClick}
-                      pageRangeDisplayed={5}
-                      pageCount={pageCount}
-                      previousLabel='< previous'
-                      renderOnZeroPageCount={null}
-                    />
-                  </div>
+                  )}
                 </CardBody>
               </Card>
             </Col>

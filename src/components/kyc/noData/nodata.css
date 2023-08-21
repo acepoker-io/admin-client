@@ -1,23 +1,29 @@
 .no-data {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    min-height: 200px;
-    align-items: center;
-    width: 100%;
-    color: #8a969c;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 200px;
+  align-items: center;
+  width: 100%;
+  color: #8a969c;
 }
-.no-data h6{
-    font-size: 20px;
-    font-weight: 400;
-    color: #8a969c;
-    margin: 0;
-    padding-top: 10px;
+.no-data h6 {
+  font-size: 20px;
+  font-weight: 400;
+  color: #8a969c;
+  margin: 0;
+  padding-top: 10px;
 }
 .notfication-card .no-data h6 {
-    color: #8a969c;
+  color: #8a969c;
 }
 
-.no-data i{
-font-size: 40px;
+.no-data i {
+  font-size: 40px;
+}
+
+.la,
+.las {
+  font-family: "Line Awesome Free" !important;
+  font-weight: 900 !important;
 }

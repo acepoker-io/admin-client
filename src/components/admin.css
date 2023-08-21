@@ -884,3 +884,19 @@ svg.react-datetime-picker__calendar-button__icon.react-datetime-picker__button__
   font-size: 20px;
   text-align: center;
 }
+
+td.pendingStatus {
+  color: #ffc107;
+}
+
+td.approveStatus {
+  color: green;
+}
+
+th svg {
+  cursor: pointer;
+}
+
+td.rejected {
+  color: red;
+}

@@ -31,6 +31,8 @@ import Loader from "../pageLoader/loader";
 // import { marketPlaceServer } from "../../config/keys";
 import numFormatter from "../../utils/utils";
 import ActionDropdown from "../users/actionDropdown";
+import TableLoader from "../kyc/loader";
+import NoData from "../kyc/noData";
 
 const Cryptoredeem = () => {
   let options = {
@@ -42,7 +44,7 @@ const Cryptoredeem = () => {
 
   const [redeemData, setRedeemData] = useState([]);
   const [redeemDataCount, setRedeemDataCount] = useState([]);
-  const [showInfo, setShowInfo] = useState(false);
+  const [showApprove, setShowApprove] = useState(false);
   const [userDetail, setUserDetail] = useState({});
   const [showReject, setShowReject] = useState(false);
   const [spinLoader, setSpinLoader] = useState(false);
@@ -51,6 +53,8 @@ const Cryptoredeem = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageLimit, setPageLimit] = useState(10);
   const [pageCount, setPageCount] = useState(0);
+  const [mainLoading, setMainLoading] = useState(true);
+  const [tableLoader, setTableLoader] = useState(true);
 
   const initialState = {
     requestedTab: "idle",
@@ -61,6 +65,8 @@ const Cryptoredeem = () => {
 
   const getAllWithdrawRequests = async () => {
     try {
+      setMainLoading(true);
+      setTableLoader(true);
       const res = await adminInstance().get("/getAllWithdrawRequest", {
         params: {
           page: currentPage,
@@ -70,6 +76,8 @@ const Cryptoredeem = () => {
         },
       });
       const { requestPrize } = res.data;
+      setMainLoading(false);
+      setTableLoader(false);
       setRedeemData(requestPrize?.results);
       setRedeemDataCount(requestPrize?.totalResults);
       setLoader(false);
@@ -105,7 +113,7 @@ const Cryptoredeem = () => {
   }, [redeemDataCount, pageLimit]);
 
   const handleShowApproveInfo = (user) => {
-    setShowInfo(!showInfo);
+    setShowApprove(!showApprove);
     setUserDetail(user);
   };
 
@@ -114,9 +122,6 @@ const Cryptoredeem = () => {
     setUserDetail(user);
   };
 
-  const handleCancel = () => {
-    setShowInfo(!showInfo);
-  };
   const handleApproveRedeem = async () => {
     setSpinLoader(true);
     const { _id: withdraw_id } = userDetail;
@@ -126,14 +131,14 @@ const Cryptoredeem = () => {
       }); // console.log("userData",userData);
       if (userData.data.success) {
         setSpinLoader(false);
-        setShowInfo(!showInfo);
+        setShowApprove(!showApprove);
         getAllWithdrawRequests();
         toast.success(`withdraw successfully!`);
       } else {
         toast.error("ERROR! - " + userData.data.message, {
           containerId: "error",
         });
-        setShowInfo(!showInfo);
+        setShowApprove(!showApprove);
         setSpinLoader(false);
       }
     } catch (e) {
@@ -233,87 +238,102 @@ const Cryptoredeem = () => {
                 </CardHeader>
                 <CardBody className='user-datatable cryptoRedeemTable'>
                   <Table responsive>
-                    {loader ? (
-                      <div className='tableLoader'>
-                        {" "}
-                        <Spinner animation='border' />
-                      </div>
-                    ) : redeemData && redeemData?.length > 0 ? (
-                      <>
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Username</th>
-                            <th>address</th>
-                            <th>amount</th>
-                            <th>Date/Time</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
+                    <>
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Username</th>
+                          <th>address</th>
+                          <th>amount</th>
+                          <th>Date/Time</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      {tableLoader ? (
                         <tbody>
-                          {redeemData.map((el, i) => (
-                            <tr key={el.id + i}>
-                              <th scope='row'>
-                                {(currentPage - 1) * pageLimit + (i + 1)}
-                              </th>
-                              <td>
-                                <p>{el?.userId?.username}</p>
-                              </td>
-
-                              <td>{el?.address}</td>
-                              <td>{numFormatter(el?.amount)}</td>
-                              <td>
-                                {" "}
-                                {new Date(el?.createdAt)?.toLocaleTimeString(
-                                  "en-US",
-                                  options
-                                )}
-                              </td>
-                              <td
-                                className={
-                                  el?.status === "pending"
-                                    ? "pendingStatus"
-                                    : el?.status === "Rejected"
-                                    ? "rejected"
-                                    : "approveStatus"
-                                }>
-                                {el.status === "pending"
-                                  ? "Pending"
-                                  : el.status}
-                              </td>
-                              {el?.status === "pending" ? (
-                                <td className='actionDropdown'>
-                                  <ActionDropdown
-                                    type={"redeem"}
-                                    handleShowUserInfo={() =>
-                                      handleShowApproveInfo(el)
-                                    }
-                                    handleShowReject={() =>
-                                      handleShowReject(el)
-                                    }
-                                  />
-                                </td>
-                              ) : el?.status === "Rejected" ? (
-                                <td className='actionDropdown'>
-                                  <FaTimes />
-                                </td>
-                              ) : (
-                                <td className='actionDropdown'>
-                                  <FaCheck />
-                                </td>
-                              )}
-                            </tr>
-                          ))}
-                          <br />
-                          <div className='actionspaces'></div>
+                          <tr>
+                            <td colSpan={9} style={{ textAlign: "center" }}>
+                              <Spinner
+                                className='tableSpinner'
+                                animation='border'
+                              />
+                            </td>
+                          </tr>
                         </tbody>
-                      </>
-                    ) : (
-                      <h2 className='noTransactionFound'>
-                        No Transaction Found
-                      </h2>
-                    )}
+                      ) : (
+                        <tbody>
+                          {!mainLoading ? (
+                            redeemData.length > 0 ? (
+                              redeemData?.map((el, i) => (
+                                <tr key={el.id + i}>
+                                  <th scope='row'>
+                                    {(currentPage - 1) * pageLimit + (i + 1)}
+                                  </th>
+                                  <td>
+                                    <p>{el?.userId?.username}</p>
+                                  </td>
+
+                                  <td>{el?.address}</td>
+                                  <td>{numFormatter(el?.amount)}</td>
+                                  <td>
+                                    {" "}
+                                    {new Date(
+                                      el?.createdAt
+                                    )?.toLocaleTimeString("en-US", options)}
+                                  </td>
+                                  <td
+                                    className={
+                                      el?.status === "pending"
+                                        ? "pendingStatus"
+                                        : el?.status === "Rejected"
+                                        ? "rejected"
+                                        : "approveStatus"
+                                    }>
+                                    {el.status === "pending"
+                                      ? "Pending"
+                                      : el.status}
+                                  </td>
+                                  {el?.status === "pending" ? (
+                                    <td className='actionDropdown'>
+                                      <ActionDropdown
+                                        type={"redeem"}
+                                        handleShowUserInfo={() =>
+                                          handleShowApproveInfo(el)
+                                        }
+                                        handleShowReject={() =>
+                                          handleShowReject(el)
+                                        }
+                                      />
+                                    </td>
+                                  ) : el?.status === "Rejected" ? (
+                                    <td className='actionDropdown'>
+                                      <FaTimes />
+                                    </td>
+                                  ) : (
+                                    <td className='actionDropdown'>
+                                      <FaCheck />
+                                    </td>
+                                  )}
+                                </tr>
+                              ))
+                            ) : (
+                              <tr>
+                                <td colSpan={10}>
+                                  <NoData />
+                                </td>
+                              </tr>
+                            )
+                          ) : (
+                            <tr>
+                              <td colSpan={10}>
+                                <TableLoader />
+                              </td>
+                            </tr>
+                          )}
+                        </tbody>
+                      )}
+                    </>
                   </Table>
 
                   {redeemDataCount && redeemDataCount >= 10 && (
@@ -356,7 +376,7 @@ const Cryptoredeem = () => {
         <Modal
           className='userInfoModal cryptoredeemApprove'
           centered
-          show={showInfo}
+          show={showApprove}
           onHide={handleShowApproveInfo}>
           <Modal.Header closeButton></Modal.Header>
           <Modal.Title>Approve Status</Modal.Title>
@@ -368,7 +388,7 @@ const Cryptoredeem = () => {
               onClick={() => handleApproveRedeem()}>
               {!spinLoader ? "Approve" : <Spinner animation='border' />}
             </button>
-            <button className='darkBtn' onClick={handleCancel}>
+            <button className='darkBtn' onClick={handleShowApproveInfo}>
               Cancel
             </button>
           </Modal.Footer>
@@ -391,7 +411,7 @@ const Cryptoredeem = () => {
               onClick={() => handleRejectRedeem()}>
               {!spinLoader ? "Reject" : <Spinner animation='border' />}
             </button>
-            <button className='darkBtn' onClick={handleCancel}>
+            <button className='darkBtn' onClick={handleShowReject}>
               Cancel
             </button>
           </Modal.Footer>
