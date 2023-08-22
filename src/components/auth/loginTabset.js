@@ -26,6 +26,8 @@ const LoginTabset = () => {
     setValue,
   } = useForm({ mode: "onBlur", resolver: yupResolver(manualLoginSchema) });
   const handleLogin = async (values) => {
+    console.log("values", values);
+    values.password = values.password.trim();
     try {
       setLoader(true);
       const response = await adminAuthInstance().post("/login", values);
