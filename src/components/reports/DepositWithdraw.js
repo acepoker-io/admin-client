@@ -25,7 +25,6 @@ import {
 import ReactPaginate from "react-paginate";
 // import NoData from "../kyc/noData";
 // import numFormatter from "../../utils/utils";
-import user from "../../assets/images/user.png";
 import { Form } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { adminInstance } from "../../config/axios";
@@ -377,7 +376,6 @@ const DepositWithdraw = () => {
                         <thead>
                           <tr>
                             <th>#</th>
-                            <th>Avatar</th>
                             <th>Username</th>
                             <th onClick={() => handleSort("Total Deposit")}>
                               Total Deposit <FaSort />
@@ -397,16 +395,7 @@ const DepositWithdraw = () => {
                                   <th scope='row'>
                                     {(currentPage - 1) * pageLimit + (i + 1)}
                                   </th>
-                                  <td className='latest-user-image'>
-                                    <img
-                                      src={el?.userProfile || user}
-                                      alt='user profile'
-                                      onError={(e) => {
-                                        e.target.onerror = null;
-                                        e.target.src = user;
-                                      }}
-                                    />
-                                  </td>
+
                                   <td>
                                     <p
                                       onClick={() => {

@@ -146,6 +146,13 @@ const Transaction = () => {
                       <option value='poker'>Poker</option>
                       <option value='deposit'>Deposit</option>
                       <option value='withdraw'>Withdraw</option>
+                      <option value='Withdraw Request Rejected By Admin'>
+                        Rejected
+                      </option>
+
+                      {/* <option value='Withdraw Request Rejected By Admin'>
+                        Approve
+                      </option> */}
                     </select>
                   </div>
                   <FormGroup className='searchFromgroup'>
