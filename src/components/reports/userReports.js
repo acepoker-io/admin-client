@@ -441,7 +441,7 @@ const UserReports = () => {
                                       onClick={() => {
                                         handleProfileModal(el?._id);
                                       }}>
-                                      {/* <FaInfoCircle /> {el?.username} */}
+                                      {el?.username}
                                     </p>
                                   </td>
                                   <td>
